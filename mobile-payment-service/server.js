@@ -40,7 +40,7 @@ mongoose
 
 
 // Employee manager routes
-app.use("/payment", require("./Routes/GetwayRouter"));
+// app.use("/payment", require("./Routes/GetwayRouter"));
 
 
 
