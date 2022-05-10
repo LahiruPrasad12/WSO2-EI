@@ -127,7 +127,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
 
 
-/**End of the auth controllers */
+/**End of the modules controllers */
 
 
 

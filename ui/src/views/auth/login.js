@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
-import axios from "../../apis/axios";
+import auth from "../../apis/modules/auth";
 
 export default function Login(){
 
@@ -9,11 +9,11 @@ export default function Login(){
 
   const login = async ()=>{
    try{
-     let data = {
+     let payload = {
        email,password
      }
-     let respond = (await axios.post('/signing', data)).data.token
-     localStorage.setItem('JWT',respond)
+     let respond = await auth.login(payload)
+     localStorage.setItem('JWT',respond.data.token)
      window.location = '/home'
    }catch (e){
      alert('error')
