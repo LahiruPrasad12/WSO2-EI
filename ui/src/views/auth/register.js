@@ -1,8 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import './login.css';
-import {Link} from 'react-router-dom';
+import auth from "../../apis/modules/auth";
 
 export default function Register(){
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [passwordConfirm, setpasswordConfirm] = useState("");
+
+    const register = async ()=>{
+       try{
+           const payload = {
+               name,password,email,passwordConfirm
+           }
+           let respond = await auth.register(payload)
+            window.location = '/login'
+       }catch (e){
+
+       }
+    }
 
   return(
 <>
@@ -33,30 +49,34 @@ export default function Register(){
               <p class="login-card-description">Signup to your account</p>
               <form action="#">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required/>
+                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required
+                           onChange={(e) => { setName(e.target.value) }}/>
                   </div>
                   <div class="form-group mb-4">
-                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required/>
+                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required
+                           onChange={(e) => { setEmail(e.target.value) }}/>
+                  </div>
+                  {/*<div class="form-group mb-4">*/}
+                  {/*  <select type="text" name="role" class="form-control" required>*/}
+                  {/*      <option value="">--Please choose your role--</option>*/}
+                  {/*      <option value="admin">Admin</option>*/}
+                  {/*      <option value="staff">Staff</option>*/}
+                  {/*      <option value="student">Student</option>*/}
+                  {/*      <option value="supervisor">Supervisor</option>*/}
+                  {/*      <option value="co-supervisor">Co-Supervisor</option>*/}
+                  {/*      <option value="panel-member">Panel-Member</option>*/}
+                  {/*      <option value="user">User</option>*/}
+                  {/*  </select>*/}
+                  {/*</div>*/}
+                  <div class="form-group mb-4">
+                    <input type="password" name="password" class="form-control" placeholder="Enter Password"
+                           onChange={(e) => { setPassword(e.target.value) }}required/>
                   </div>
                   <div class="form-group mb-4">
-                    <select type="text" name="role" class="form-control" required>
-                        <option value="">--Please choose your role--</option>
-                        <option value="admin">Admin</option>
-                        <option value="staff">Staff</option>
-                        <option value="student">Student</option>
-                        <option value="supervisor">Supervisor</option>
-                        <option value="co-supervisor">Co-Supervisor</option>
-                        <option value="panel-member">Panel-Member</option>
-                        <option value="user">User</option>
-                    </select>
+                    <input type="password" name="passwordConfirm" class="form-control" placeholder="Re-Enter Password" required
+                           onChange={(e) => { setpasswordConfirm(e.target.value) }}/>
                   </div>
-                  <div class="form-group mb-4">
-                    <input type="password" name="password" class="form-control" placeholder="Enter Password" required/>
-                  </div>
-                  <div class="form-group mb-4">
-                    <input type="password" name="passwordConfirm" class="form-control" placeholder="Re-Enter Password" required/>
-                  </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Register" />
+                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Register" onClick={(e)=>{register()}}/>
                 </form>
                 <p class="login-card-footer-text">Already have an account? <a href="/login" class="text-reset">Login here</a></p>
             </div>
