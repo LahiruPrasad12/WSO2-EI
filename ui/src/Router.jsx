@@ -4,9 +4,7 @@ import Login from "./views/auth/login"
 import Register from "./views/auth/register"
 import {
     BrowserRouter as Router,
-    Switch,
     Route,
-    Redirect,
 } from "react-router-dom";
 import Home from "./views/dashboard/Home";
 

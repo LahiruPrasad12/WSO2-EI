@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './login.css';
-import {Link} from 'react-router-dom';
-import axios from "axios";
+import axios from "../../apis/axios";
 
 export default function Login(){
 
@@ -13,8 +12,9 @@ export default function Login(){
      let data = {
        email,password
      }
-     let respond = await axios.post('http://localhost:5000/signing',data)
-     // window.location = '/home'
+     let respond = (await axios.post('/signing', data)).data.token
+     localStorage.setItem('JWT',respond)
+     window.location = '/home'
    }catch (e){
      alert('error')
 
