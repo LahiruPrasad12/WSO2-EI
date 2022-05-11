@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './login.css';
 import auth from "../../apis/modules/auth";
-import {SigningForm, SignupSchema} from "../../validations";
+import {SignupSchema} from "../../validations";
 import {Field, Form, Formik} from "formik";
 
 export default function Register(){
@@ -11,96 +11,97 @@ export default function Register(){
     // const [passwordConfirm, setpasswordConfirm] = useState("");
 
     const register = async (data)=>{
-     try{
-         const payload = {
-             name:data.name,
-             email:data.email,
-             password:data.password, passwordConfirm:data.passwordConfirm
-     }
-      let respond = await auth.register(payload)
-          window.location = '/login'
+        try{
+            const payload = {
+                name:data.name,
+                email:data.email,
+                password:data.password, passwordConfirm:data.passwordConfirm
+            }
+            let respond = await auth.register(payload)
+            window.location = '/login'
         }catch (e){
 
+        }
     }
-    }
 
-  return(
-<>
-<head>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-  <title>Register Page</title>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-</head>  
+    return(
+        <>
+            <head>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+                <title>Register Page</title>
+                <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+                <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+            </head>
 
-<body style={{paddingTop: '3em'}}>
-  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-    <div class="container">
-      <div class="card login-card">
-        <div class="row no-gutters">
-          <div class="col-md-5">
-            <img src="https://i.postimg.cc/G2dDZfDw/JV-Revamping-your-website-FA-P1.gif" alt="" class="login-card-img" />
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-            <div class="logo">
-              <img src="https://i.postimg.cc/J4ymPYYv/newl.png" alt="Logo" />
-              <h3>XIOS</h3>
-            </div>
-              <p class="login-card-description">Signup to your account</p>
-                <Formik
-                    initialValues={{
-                        name:'',
-                        email: '',
-                        password:'',
-                    }}
-                    validationSchema={SignupSchema}
-                    onSubmit={values => {
-                        console.log(values)
-                    }}
-                >
-                    {({ errors, touched }) => (
-                        <Form>
-                            <div>
-                                <Field type="text" name="name" id="password" class="form-control"
-                                       placeholder="name"/>
-                                {errors.name && touched.name ?
-                                    <p id={"login-error"} className="text-danger">{errors.name}</p> : null}
+            <body style={{paddingTop: '3em'}}>
+            <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+                <div class="container">
+                    <div class="card login-card">
+                        <div class="row no-gutters">
+                            <div class="col-md-5">
+                                <img src="https://i.postimg.cc/G2dDZfDw/JV-Revamping-your-website-FA-P1.gif" alt="" class="login-card-img" />
                             </div>
-                            <div>
-                                <Field type="email" name="email" id="email" class="form-control" placeholder="Email address" />
-                                {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
-                            </div>
-                            <div>
-                                <Field type="text" name="password" id="password" class="form-control" placeholder="Password" />
-                                {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
-                            </div>
-                            <div>
-                                <Field type="text" name="password" id="password" class="form-control"
-                                       placeholder="Password"/>
-                                {errors.password && touched.password ?
-                                    <p id={"login-error"} className="text-danger">{errors.password}</p> : null}
-                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <div class="logo">
+                                        <img src="https://i.postimg.cc/J4ymPYYv/newl.png" alt="Logo" />
+                                        <h3>XIOS</h3>
+                                    </div>
+                                    <p class="login-card-description">Signup to your account</p>
+                                    <Formik
+                                        initialValues={{
+                                            name:'',
+                                            email: '',
+                                            password:'',
+                                            passwordConfirm:''
+                                        }}
+                                        validationSchema={SignupSchema}
+                                        onSubmit={values => {
+                                            register(values)
+                                        }}
+                                    >
+                                        {({ errors, touched }) => (
+                                            <Form>
+                                                <div>
+                                                    <Field type="text" name="name" id="name" class="form-control"
+                                                           placeholder="name"/>
+                                                    {errors.name && touched.name ?
+                                                        <p id={"login-error"} className="text-danger">{errors.name}</p> : null}
+                                                </div>
+                                                <div>
+                                                    <Field type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+                                                    {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
+                                                </div>
+                                                <div>
+                                                    <Field type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                                                    {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
+                                                </div>
+                                                <div>
+                                                    <Field type="password" name="passwordConfirm" id="passwordConfirm" class="form-control"
+                                                           placeholder="Confirm password"/>
+                                                    {errors.passwordConfirm && touched.passwordConfirm ?
+                                                        <p id={"login-error"} className="text-danger">{errors.passwordConfirm}</p> : null}
+                                                </div>
 
-                            <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
-                        </Form>
-                    )}
-                </Formik>
-                <p class="login-card-footer-text">Already have an account? <a href="/login" class="text-reset">Login here</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
-</>
+                                                <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
+                                            </Form>
+                                        )}
+                                    </Formik>
+                                    <p class="login-card-footer-text">Already have an account? <a href="/login" class="text-reset">Login here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+            </body>
+        </>
 
-  )
+    )
 }
