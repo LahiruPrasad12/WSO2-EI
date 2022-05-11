@@ -1,7 +1,8 @@
 import React from 'react';
 import LandingPage from "./landing_page/landingPage"
-import Login from "./views/auth/login"
+import {Login} from "./views/auth/login"
 import Register from "./views/auth/register"
+import {ValidationSchemaExample} from './views/Test'
 import {
     BrowserRouter as Router,
     Route,
@@ -16,6 +17,8 @@ const Routers = () => {
             <Route exact path = "/register"><Register/></Route>
 
             <Route exact path = "/home"><Home/></Route>
+
+            <Route exact path = "/test"><ValidationSchemaExample/></Route>
 
         </Router>
     );

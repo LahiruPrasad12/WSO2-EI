@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import './login.css';
 import auth from "../../apis/modules/auth";
+import {SignupSchema} from '../../validations/index'
+import {Formik, Form, Field} from 'formik'
 
-export default function Login(){
+export function Login(){
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const login = async ()=>{
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const login = async (data)=>{
    try{
      let payload = {
-       email,password
+       email:data.email,
+       password:data.password
      }
      let respond = await auth.login(payload)
      localStorage.setItem('JWT',respond.data.token)
      window.location = '/home'
    }catch (e){
      alert('error')
-
    }
   }
 
@@ -48,19 +51,32 @@ export default function Login(){
               <h3>XIOS</h3>
             </div>
               <p class="login-card-description">Sign into your account</p>
-              <form action="">
-                  <div class="form-group">
-                    <label form="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address"
-                           onChange={(e) => { setEmail(e.target.value) }}/>
-                  </div>
-                  <div class="form-group mb-4">
-                    <label form="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-                           onChange={(e) => { setPassword(e.target.value) }}/>
-                  </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login" onClick={(e)=>{login()}} />
-                </form>
+              <Formik
+                  initialValues={{
+                    email: '',
+                    password:''
+                  }}
+                  validationSchema={SignupSchema}
+                  onSubmit={values => {
+                    login(values)
+                  }}
+              >
+                {({ errors, touched }) => (
+                    <Form>
+                      <div>
+                        <Field type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+                        {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
+                      </div>
+                      <div>
+                        <Field type="text" name="password" id="password" class="form-control" placeholder="Password" />
+                        {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
+                      </div>
+
+                      <button type="submit" class="btn btn-block login-btn mb-4">Login</button>
+                    </Form>
+                )}
+              </Formik>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a href="#" class="forgot-password-link">Forgot password?</a>
                 <p class="login-card-footer-text">Don't have an account? <a href="/register" class="text-reset">Register here</a></p>
             </div>
