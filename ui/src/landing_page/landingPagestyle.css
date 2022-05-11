@@ -10,9 +10,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  --mainColor: #64bcf4;
-  --hoverColor: #5bacdf;
-  background-Color: #f1f8fc;
+  --mainColor: #2eac5e;
+  --hoverColor: #4cc97c;
+  background-Color: #ffffff;
   --darkOne: #312f3a;
   --darkTwo: #45424b;
   --lightOne: #919191;
@@ -70,9 +70,9 @@ header .container {
 }
 
 .logo img {
-  width: 40px;
+  width: 200px;
   margin-right: 0.6rem;
-  margin-top: -0.6rem;
+  margin-top: -0rem;
 }
 
 .logo h3 {

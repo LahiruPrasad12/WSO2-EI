@@ -18,11 +18,10 @@ export default function LandingPage(){
         <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
 
         <header>
-        <img src="https://i.postimg.cc/bws7zGf5/slider-left-dec.png" alt="" class="shape" />
+        <img src="https://i.postimg.cc/qRFy6RzC/slider-left-dec.png" alt="" class="shape" />
           <div class="container">
             <div class="logo">
-              <img src="https://i.postimg.cc/J4ymPYYv/newl.png" alt="Logo" />
-              <h3>XIOS</h3>
+              <img src="https://i.postimg.cc/rsPvKTyp/CA.png" alt="Logo" />
             </div>
 
             <div class="links">
@@ -46,7 +45,7 @@ export default function LandingPage(){
           <div class="container">
             <div class="left">
               <div class="big-title">
-                <h1>Welcome To Axios</h1>
+                <h1>Welcome To Ceylon Agri</h1>
                 <h1>Start Exploring now.</h1>
               </div>
               <p class="text">
@@ -62,7 +61,7 @@ export default function LandingPage(){
             </div>
 
             <div class="right">
-              <img src="https://i.postimg.cc/ZYWq0Lzb/Engineering-Manager-MERN-Stack.gif" />
+              <img src="https://i.postimg.cc/4yYBmhFD/0c428e8239727076ce2e1716b1ee529eff79ad34466fea57e80c3ebc4336a019821c607b17d5ada3-car-202x158.gif" />
             </div>
               <row></row>
           </div>
