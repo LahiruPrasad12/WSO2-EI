@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './login.css';
 import auth from "../../apis/modules/auth";
-import {SignupSchema} from "../../validations";
+import {SigningForm, SignupSchema} from "../../validations";
 import {Field, Form, Formik} from "formik";
 
 export default function Register(){
@@ -56,17 +56,16 @@ export default function Register(){
                         name:'',
                         email: '',
                         password:'',
-                        passwordConfirm:''
                     }}
                     validationSchema={SignupSchema}
                     onSubmit={values => {
-                        register(values)
+                        console.log(values)
                     }}
                 >
                     {({ errors, touched }) => (
                         <Form>
                             <div>
-                                <Field type="text" name="name" id="name" class="form-control"
+                                <Field type="text" name="name" id="password" class="form-control"
                                        placeholder="name"/>
                                 {errors.name && touched.name ?
                                     <p id={"login-error"} className="text-danger">{errors.name}</p> : null}
@@ -76,14 +75,14 @@ export default function Register(){
                                 {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
                             </div>
                             <div>
-                                <Field type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                                <Field type="text" name="password" id="password" class="form-control" placeholder="Password" />
                                 {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
                             </div>
                             <div>
-                                <Field type="password" name="passwordConfirm" id="passwordConfirm" class="form-control"
-                                       placeholder="Confirm password"/>
-                                {errors.passwordConfirm && touched.passwordConfirm ?
-                                    <p id={"login-error"} className="text-danger">{errors.passwordConfirm}</p> : null}
+                                <Field type="text" name="password" id="password" class="form-control"
+                                       placeholder="Password"/>
+                                {errors.password && touched.password ?
+                                    <p id={"login-error"} className="text-danger">{errors.password}</p> : null}
                             </div>
 
                             <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
