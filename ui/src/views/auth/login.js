@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import auth from "../../apis/modules/auth";
-import {SignupSchema} from '../../validations/index'
+import {SigningForm} from '../../validations/index'
 import {Formik, Form, Field} from 'formik'
 
 export function Login(){
@@ -56,7 +56,7 @@ export function Login(){
                     email: '',
                     password:''
                   }}
-                  validationSchema={SignupSchema}
+                  validationSchema={SigningForm}
                   onSubmit={values => {
                     login(values)
                   }}
@@ -68,7 +68,7 @@ export function Login(){
                         {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
                       </div>
                       <div>
-                        <Field type="text" name="password" id="password" class="form-control" placeholder="Password" />
+                        <Field type="password" name="password" id="password" class="form-control" placeholder="Password" />
                         {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
                       </div>
 

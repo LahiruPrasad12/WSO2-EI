@@ -1,23 +1,27 @@
 import React, {useState} from "react";
 import './login.css';
 import auth from "../../apis/modules/auth";
+import {SignupSchema} from "../../validations";
+import {Field, Form, Formik} from "formik";
 
 export default function Register(){
-    const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [passwordConfirm, setpasswordConfirm] = useState("");
+    // const [name, setName] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [passwordConfirm, setpasswordConfirm] = useState("");
 
-    const register = async ()=>{
-       try{
-           const payload = {
-               name,password,email,passwordConfirm
-           }
-           let respond = await auth.register(payload)
-            window.location = '/login'
-       }catch (e){
+    const register = async (data)=>{
+     try{
+         const payload = {
+             name:data.name,
+             email:data.email,
+             password:data.password, passwordConfirm:data.passwordConfirm
+     }
+      let respond = await auth.register(payload)
+          window.location = '/login'
+        }catch (e){
 
-       }
+    }
     }
 
   return(
@@ -47,37 +51,45 @@ export default function Register(){
               <h3>XIOS</h3>
             </div>
               <p class="login-card-description">Signup to your account</p>
-              <form action="#">
-                  <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name" required
-                           onChange={(e) => { setName(e.target.value) }}/>
-                  </div>
-                  <div class="form-group mb-4">
-                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email" required
-                           onChange={(e) => { setEmail(e.target.value) }}/>
-                  </div>
-                  {/*<div class="form-group mb-4">*/}
-                  {/*  <select type="text" name="role" class="form-control" required>*/}
-                  {/*      <option value="">--Please choose your role--</option>*/}
-                  {/*      <option value="admin">Admin</option>*/}
-                  {/*      <option value="staff">Staff</option>*/}
-                  {/*      <option value="student">Student</option>*/}
-                  {/*      <option value="supervisor">Supervisor</option>*/}
-                  {/*      <option value="co-supervisor">Co-Supervisor</option>*/}
-                  {/*      <option value="panel-member">Panel-Member</option>*/}
-                  {/*      <option value="user">User</option>*/}
-                  {/*  </select>*/}
-                  {/*</div>*/}
-                  <div class="form-group mb-4">
-                    <input type="password" name="password" class="form-control" placeholder="Enter Password"
-                           onChange={(e) => { setPassword(e.target.value) }}required/>
-                  </div>
-                  <div class="form-group mb-4">
-                    <input type="password" name="passwordConfirm" class="form-control" placeholder="Re-Enter Password" required
-                           onChange={(e) => { setpasswordConfirm(e.target.value) }}/>
-                  </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Register" onClick={(e)=>{register()}}/>
-                </form>
+                <Formik
+                    initialValues={{
+                        name:'',
+                        email: '',
+                        password:'',
+                        passwordConfirm:''
+                    }}
+                    validationSchema={SignupSchema}
+                    onSubmit={values => {
+                        register(values)
+                    }}
+                >
+                    {({ errors, touched }) => (
+                        <Form>
+                            <div>
+                                <Field type="text" name="name" id="name" class="form-control"
+                                       placeholder="name"/>
+                                {errors.name && touched.name ?
+                                    <p id={"login-error"} className="text-danger">{errors.name}</p> : null}
+                            </div>
+                            <div>
+                                <Field type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+                                {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
+                            </div>
+                            <div>
+                                <Field type="password" name="password" id="password" class="form-control" placeholder="Password" />
+                                {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
+                            </div>
+                            <div>
+                                <Field type="password" name="passwordConfirm" id="passwordConfirm" class="form-control"
+                                       placeholder="Confirm password"/>
+                                {errors.passwordConfirm && touched.passwordConfirm ?
+                                    <p id={"login-error"} className="text-danger">{errors.passwordConfirm}</p> : null}
+                            </div>
+
+                            <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
+                        </Form>
+                    )}
+                </Formik>
                 <p class="login-card-footer-text">Already have an account? <a href="/login" class="text-reset">Login here</a></p>
             </div>
           </div>
