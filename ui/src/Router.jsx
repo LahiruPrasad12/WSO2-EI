@@ -7,7 +7,7 @@ import {
     BrowserRouter as Router,
     Route,
 } from "react-router-dom";
-import Home from "./views/dashboard/Home";
+import Home from "./views/client/home/home";
 
 const Routers = () => {
     return (
