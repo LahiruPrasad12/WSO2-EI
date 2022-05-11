@@ -38,13 +38,12 @@ export default function Register(){
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="https://i.postimg.cc/G2dDZfDw/JV-Revamping-your-website-FA-P1.gif" alt="" class="login-card-img" />
+            <img src="https://i.postimg.cc/gjJwsP6b/image-processing20190917-14163-1vb88dr.gif" alt="" class="login-card-img" />
           </div>
           <div class="col-md-7">
             <div class="card-body">
             <div class="logo">
-              <img src="https://i.postimg.cc/J4ymPYYv/newl.png" alt="Logo" />
-              <h3>XIOS</h3>
+              <a href="/"><img src="https://i.postimg.cc/rsPvKTyp/CA.png" alt="Logo" /></a>
             </div>
               <p class="login-card-description">Signup to your account</p>
               <form action="#">

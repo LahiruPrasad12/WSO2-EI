@@ -39,24 +39,23 @@ export default function Login(){
       <div class="card login-card">
         <div class="row no-gutters">
           <div class="col-md-5">
-            <img src="https://i.postimg.cc/HWf6NYLf/customer5-1-1.gif" alt="" class="login-card-img" />
+              <img src="https://i.postimg.cc/XqdvQ77h/image-processing20190919-32761-1ls35ew.gif" alt="" class="login-card-img" />
           </div>
           <div class="col-md-7">
             <div class="card-body">
             <div class="logo">
-              <img src="https://i.postimg.cc/J4ymPYYv/newl.png" alt="Logo" />
-              <h3>XIOS</h3>
+              <a href="/"><img src="https://i.postimg.cc/rsPvKTyp/CA.png" alt="Logo" /></a>
             </div>
               <p class="login-card-description">Sign into your account</p>
               <form action="">
                   <div class="form-group">
                     <label form="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address"
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required
                            onChange={(e) => { setEmail(e.target.value) }}/>
                   </div>
                   <div class="form-group mb-4">
                     <label form="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required
                            onChange={(e) => { setPassword(e.target.value) }}/>
                   </div>
                   <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login" onClick={(e)=>{login()}} />
