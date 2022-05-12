@@ -13,6 +13,7 @@ const productRoutes = require('./Routes/productRoutes');
 const cartRoutes = require('./Routes/cartRoutes');
 const bankCartRoute = require('./Routes/bankCartRoute');
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 app.use(cors({
@@ -20,6 +21,10 @@ app.use(cors({
   credentials:true
 }));
 //GLOBAL MIDDLEWARES
+
+//This is used to save image
+app.use('/', express.static(path.join(__dirname, '/public')));
+
 
 // Set security HTTP headers
 app.use(helmet());
