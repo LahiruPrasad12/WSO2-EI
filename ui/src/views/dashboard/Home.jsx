@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "../../apis/axios";
+import product from "../../apis/modules/product";
 
 const Home = () => {
 
@@ -14,7 +15,7 @@ const Home = () => {
             name:"product 1"
         }
 
-        let respond = await axios.post('/api/products',data)
+        let respond = await product.createPrduct(data)
     }
     return (
         <div>
