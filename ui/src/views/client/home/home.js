@@ -6,7 +6,7 @@ import Header from '../../../layouts/header';
 
 const Home = () => {
     return (
-<> 
+<div>
     <Header/>
     <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
 
@@ -208,7 +208,7 @@ const Home = () => {
     </div>
 </div> 
 <Footer/>
-</>
+</div>
     );
 };
 
