@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import LandingPage from "./landing_page/landingPage"
 import {Login} from "./views/auth/login"
 import Register from "./views/auth/register"
@@ -8,15 +8,28 @@ import {
     Route,
 } from "react-router-dom";
 import Home from "./views/client/home/home";
+import AuthContext from "./context/AuthContext";
 
 const Routers = () => {
+    const { loggedIn } = useContext(AuthContext);
+
     return (
-        
         <Router>
-            <Route exact path = "/login"><Login/></Route>
-            <Route exact path = "/register"><Register/></Route>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path = "/home"><Home/></Route>
+            {
+                loggedIn === null && (<>
+                    <Route exact path = "/login"><Login/></Route>
+                    <Route exact path = "/register"><Register/></Route>
+                    <Route exact path="/" component={LandingPage} />
+                </>)
+            }
+
+            {
+                loggedIn !== null && (<>
+                    <Route exact path = "/"><Home/></Route>
+                </>)
+            }
+
+
             <Route exact path = "/test"><ValidationSchemaExample/></Route>
 
         </Router>

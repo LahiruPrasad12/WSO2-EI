@@ -1,15 +1,19 @@
+import React from "react";
+import Router from "./Router"
+import axios from "axios";
+import { AuthContextProvider } from "../src/context/AuthContext";
 
-import Routers from './Router'
 
-import React from "react"
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
-      <div>
-        <Routers/>
-      </div>
+    <AuthContextProvider>
+      <Router />
+    </AuthContextProvider>
 
-  )
+  );
 }
 
 export default App;

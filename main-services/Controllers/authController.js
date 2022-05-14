@@ -124,6 +124,24 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 });
 
 
+//get current user
+exports.currentUser = catchAsync(async (req, res, next) => {
+  res.status(200).json({
+    status: 'success',
+    data: req.user
+  });
+});
+
+//logout user
+exports.logout = catchAsync(async (req, res, next) => {
+  res.cookie("jwt","loggedout",{
+    expires: new Date(Date.now()+10*1000),
+    httpOnly:true
+  });
+  res.status(200).json({
+    status:'success'
+  })
+});
 
 
 
@@ -189,7 +207,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
 
-  //Verification token. This will return promise. So, i jsut used promisify inbuild method
+  //Verification token. This will return promise. So, I just used promisify inbuilt method
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
   // Check if user still exists
