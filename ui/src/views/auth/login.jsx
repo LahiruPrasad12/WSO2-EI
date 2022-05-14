@@ -9,6 +9,7 @@ export function Login(){
 
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const login = async (data)=>{
    try{
@@ -20,7 +21,7 @@ export function Login(){
      localStorage.setItem('JWT',respond.data.token)
      window.location = '/home'
    }catch (e){
-     alert('error')
+     setError('Your user name or password is incorrect')
    }
   }
 
@@ -69,6 +70,8 @@ export function Login(){
                       <div>
                         <Field type="password" name="password" id="password" class="form-control" placeholder="Password" />
                         {errors.password && touched.password ? <p id={"login-error"} class="text-danger">{errors.password}</p> : null}
+                        {error ? <p id={"login-error"} class="text-danger">{error}</p> : null}
+                        
                       </div>
 
                       <button type="submit" class="btn btn-block login-btn mb-4">Login</button>
