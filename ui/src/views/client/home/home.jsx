@@ -13,7 +13,7 @@ const ClientHome = () => {
         <div class="container" >
             <div className='shopc'>
             <h1>SHOP THE COLLECTION</h1>
-            <p><Link to="/">Home</Link> / <Link to="/home">Collection</Link></p>
+            <p><Link to="/">Home</Link> / <Link to="/homeclient">Collection</Link></p>
             </div>
             <div className='c2'>
             <div class='rowp'>

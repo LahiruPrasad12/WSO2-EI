@@ -10,7 +10,7 @@ const Home_Owner = () => {
         <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
         <div className='container'>
         <div className='shopc'>
-        <h1>Add Product</h1>
+        <h1>ADD PRODUCT</h1>
         <p><Link to="/">Home</Link> / <Link to="/homeowner">Add Product</Link></p>
         </div>
             <form>

@@ -10,6 +10,8 @@ import {
 import ClientHome from './views/client/home/home';
 import Home_Owner from './views/owner/home/home';
 import AuthContext from "./context/AuthContext";
+import Cart from './views/client/cart/cart';
+import Cardpay from './views/client/payment/cardpay';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);
@@ -23,6 +25,8 @@ const Routers = () => {
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path = "/homeowner"><Home_Owner/></Route>
                     <Route exact path = "/homeclient"><ClientHome/></Route>
+                    <Route exact path = "/cart"><Cart/></Route>
+                    <Route exact path = "/cardpay"><Cardpay/></Route>
                 </>)
             }
 
