@@ -29,8 +29,9 @@ const OwnerHome = () => {
 
             <div class="container" >
                 <div className='shopc'>
-                    <h1>MY HOME</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/home">Collection</Link></p>
+                    <h1>Add Product</h1>
+                    <p><Link to="/">Home</Link> / <Link to="/add-product">Add Product</Link></p>
+
                 </div>
                 <div className='c2'>
                     <div class='rowp'>

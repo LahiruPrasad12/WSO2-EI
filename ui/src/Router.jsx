@@ -11,6 +11,8 @@ import ClientHome from './views/client/home/home';
 import AddProduct from './views/owner/home/addProduct';
 import OwnerHome from './views/owner/home/home';
 import AuthContext from "./context/AuthContext";
+import Cart from './views/client/cart/cart';
+import Cardpay from './views/client/payment/cardpay';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);

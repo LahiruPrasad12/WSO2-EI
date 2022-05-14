@@ -57,6 +57,7 @@ const ClientHome = () => {
                             )
                         })}
                     </div>
+
                 </div>
             </div>
             <Footer />
