@@ -48,7 +48,7 @@ export default function LandingPage(){
               </p>
               <div class="cta">
 
-                <li href="#" onClick={redirectPage} class="btn2">Get started</li>
+               <Link><li href="#" onClick={redirectPage} class="btn2">Get started</li></Link>
 
               </div>
             </div>
