@@ -35,6 +35,10 @@ const productSchema = new Schema(
       type: Number,
       required: [true, "Please enter a valid product name"],
     },
+    user_id: {
+      type: String,
+      required: [true, "Please enter a user id"],
+    },
   },
   { timestamps: true }
 );

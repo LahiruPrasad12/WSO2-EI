@@ -9,7 +9,8 @@ const hpp = require('hpp');
 const AppError = require('./Utils/appError');
 
 const authRouter = require('./Routes/authRoutes');
-const productRoutes = require('./Routes/productRoutes');
+const userRoute = require('./Routes/userRoute');
+const ownerRoute = require('./Routes/ownerRoute');
 const cartRoutes = require('./Routes/cartRoutes');
 const bankCartRoute = require('./Routes/bankCartRoute');
 const cors = require("cors");
@@ -72,7 +73,8 @@ app.use(express.static(`${__dirname}/public`));
 // 3) ROUTES
 // app.use('/api/v1/tours', tourRouter);
 app.use('/', authRouter);
-app.use('/api/products', productRoutes);
+app.use('/api/user', userRoute);
+app.use('/api/owner', ownerRoute);
 app.use('/api/carts', cartRoutes);
 app.use('/api/bank-carts', bankCartRoute);
 

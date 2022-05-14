@@ -29,6 +29,20 @@ exports.listProducts = async (req, res) => {
   }
 };
 
+// list all the products
+exports.listMyProducts = async (req, res) => {
+  try {
+    console.log(req.user._id)
+    let userID = req.user._id
+    const Respond = new Filters(Product.find({user_id:userID}), req.query).filter().sort().limitFields().paginate();
+    const products = await Respond.query;
+    return res.status(200).json(products);
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ message: "Error when retrieving products" });
+  }
+};
+
 // find product based on id
 exports.findProduct = async (req, res) => {
   try {
@@ -44,6 +58,7 @@ exports.findProduct = async (req, res) => {
 // create / update a product
 exports.saveProduct = async (req, res) => {
   try {
+    req.body.user_id = req.user._id
     req.body.image = req.file.filename
     const new_product = await Product.create(req.body)
     return res.status(200).json({
