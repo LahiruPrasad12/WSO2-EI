@@ -29,7 +29,7 @@ a {
 }
 
 .big-wrapper {
-  position: relative;
+  position: sticky;
   padding: 1.7rem 0 0rem;
   width: 100%;
   height: auto;
@@ -45,7 +45,7 @@ a {
   width: 100%;
   margin: 0 auto;
   z-index: 10;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 header {
@@ -90,7 +90,7 @@ header .container {
 
 .links a {
   color: var(--lightTwo);
-  margin-left: 4.5rem;
+  margin-left: 2.5rem;
   display: inline-block;
   transition: 0.3s;
 }
@@ -187,6 +187,7 @@ header .container {
   margin: 1.9rem 0 2.5rem;
   max-width: 600px;
   line-height: 2.3;
+  text-align: justify;
 }
 
 .showcase-area .btn {
@@ -380,3 +381,8 @@ header .container {
   text-align: center;
   
  }
+
+
+
+
+
