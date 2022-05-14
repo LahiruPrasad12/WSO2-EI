@@ -7,7 +7,7 @@ import {
     BrowserRouter as Router,
     Route,
 } from "react-router-dom";
-import Home from "./views/client/home/home";
+import ClientHome from './views/client/home/home';
 import Home_Owner from './views/owner/home/home';
 import AuthContext from "./context/AuthContext";
 
@@ -22,12 +22,13 @@ const Routers = () => {
                     <Route exact path = "/register"><Register/></Route>
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path = "/homeowner"><Home_Owner/></Route>
+                    <Route exact path = "/homeclient"><ClientHome/></Route>
                 </>)
             }
 
             {
                 loggedIn !== null && (<>
-                    <Route exact path = "/"><Home/></Route>
+                    {/* <Route exact path = "/homeclient"><ClientHome/></Route> */}
                 </>)
             }
 
