@@ -67,7 +67,7 @@ export default function Register(){
                                             <Form>
                                                 <div>
                                                     <Field type="text" name="name" id="name" class="form-control"
-                                                           placeholder="name"/>
+                                                           placeholder="Name"/>
                                                     {errors.name && touched.name ?
                                                         <p id={"login-error"} className="text-danger">{errors.name}</p> : null}
                                                 </div>
@@ -81,7 +81,7 @@ export default function Register(){
                                                 </div>
                                                 <div>
                                                     <Field type="password" name="passwordConfirm" id="passwordConfirm" class="form-control"
-                                                           placeholder="Confirm password"/>
+                                                           placeholder="Confirm Password"/>
                                                     {errors.passwordConfirm && touched.passwordConfirm ?
                                                         <p id={"login-error"} className="text-danger">{errors.passwordConfirm}</p> : null}
                                                         {error ? <p id={"login-error"} class="text-danger">{error}</p> : null}
