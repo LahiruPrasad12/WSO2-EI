@@ -8,6 +8,7 @@ const productSchema = new Schema(
     },
     image: {
       type: String,
+        required: [true, "Please enter a valid product name"],
     },
     description: {
       type: String,
