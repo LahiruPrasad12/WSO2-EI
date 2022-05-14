@@ -4,7 +4,7 @@ import './footer.css';
 export default function Footer(){
 
     return (
-        
+        <center>
 <footer>
     <div class="wrapper">
       <small>&copy;2022 <strong>Ceylon Agri Pvt.Ltd</strong>, All Rights Reserved</small>
@@ -15,5 +15,6 @@ export default function Footer(){
       </nav>
       </div>
   </footer>
+  </center>
     )
 }

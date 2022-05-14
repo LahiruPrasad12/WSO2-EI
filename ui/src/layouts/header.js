@@ -18,16 +18,10 @@ export default function Header(){
               <ul>
                 <Link to="/"><li><a >Home</a></li></Link>
                 <Link to="/home"><li><a>Products</a></li></Link>
-                <Link to="/"><li><a>Pricing</a></li></Link>
+                <Link to="/homeowner"><li><a>Product Listing Form</a></li></Link>
                 <Link to="/"><li><a>Testimonials</a></li></Link>
-                <Link to="/login"><li class="btn">Sign in</li></Link>
+                <Link to="/login"><li class="btn2">Sign in</li></Link>
               </ul>
-            </div>
-
-            <div class="overlay"></div>
-
-            <div class="hamburger-menu">
-              <div class="bar"></div>
             </div>
           </div>
         </header>

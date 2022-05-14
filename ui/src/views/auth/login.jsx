@@ -63,7 +63,7 @@ export function Login(){
                 {({ errors, touched }) => (
                     <Form>
                       <div>
-                        <Field type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+                        <Field type="email" name="email" id="email" class="form-control" placeholder="Email Address" />
                         {errors.email && touched.email ? <p id={"login-error"} class="text-danger">{errors.email}</p> : null}
                       </div>
                       <div>

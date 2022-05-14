@@ -8,6 +8,7 @@ import {
     Route,
 } from "react-router-dom";
 import Home from "./views/client/home/home";
+import Home_Owner from './views/owner/home/home';
 
 const Routers = () => {
     return (
@@ -17,6 +18,7 @@ const Routers = () => {
             <Route exact path = "/register"><Register/></Route>
             <Route exact path="/" component={LandingPage} />
             <Route exact path = "/home"><Home/></Route>
+            <Route exact path = "/homeowner"><Home_Owner/></Route>
             <Route exact path = "/test"><ValidationSchemaExample/></Route>
 
         </Router>
