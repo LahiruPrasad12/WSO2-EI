@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 
-const Home = () => {
+const ClientHome = () => {
     return (
 <div>
     <Header/>
@@ -127,4 +127,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default ClientHome;
