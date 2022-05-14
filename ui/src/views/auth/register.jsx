@@ -18,10 +18,10 @@ export default function Register(){
                 email:data.email,
                 password:data.password, passwordConfirm:data.passwordConfirm
             }
-            let respond = await auth.register(payload)
+            await auth.register(payload)
             window.location = '/login'
         }catch (e){
-            setError('Your email is alredy exists!!')
+            setError('Your email is already exists!!')
         }
     }
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React,{createContext, useContext, useEffect, useState} from 'react'
 import auth from "../apis/modules/auth";
 
@@ -8,8 +8,12 @@ function AuthContextProvider(props) {
     const [loggedIn, setloggedIn] = useState(undefined);
 
     async function getLogged(){
-        const loggedInRes = await auth.currentUser();
-        setloggedIn(loggedInRes.data.data);
+       try{
+           const loggedInRes = await auth.currentUser();
+           setloggedIn(loggedInRes.data.data);
+       }catch (error){
+           setloggedIn(null)
+       }
     }
 
     useEffect(() => {

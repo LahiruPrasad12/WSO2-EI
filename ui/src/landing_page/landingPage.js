@@ -33,7 +33,7 @@ export default function LandingPage(){
                 vitae!
               </p>
               <div class="cta">
-                <Link to="/home"><a href="#" class="btn">Get started</a></Link>
+                <Link to="/login"><a href="#" class="btn">Get started</a></Link>
               </div>
             </div>
 

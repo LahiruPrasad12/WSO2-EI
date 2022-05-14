@@ -5,5 +5,6 @@ import api from "../axios";
 export default  {
     login: (payload) => api.post(`/signing`,payload),
     register: (payload) => api.post(`/signup`,payload),
-    currentUser: (payload) => api.get(`/current-user`,payload),
+    currentUser: () => api.get(`/current-user`),
+    logout: () => api.get(`/logout`),
 }

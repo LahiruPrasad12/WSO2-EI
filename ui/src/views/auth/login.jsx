@@ -19,7 +19,7 @@ export function Login(){
      }
      let respond = await auth.login(payload)
      localStorage.setItem('JWT',respond.data.token)
-     window.location = '/home'
+     window.location = '/'
    }catch (e){
      setError('Your user name or password is incorrect')
    }
