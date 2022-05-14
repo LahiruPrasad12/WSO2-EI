@@ -3,7 +3,10 @@ const AppError = require('../Utils/appError');
 
 //Set path file to save
 exports.setPath = (path) => multer.diskStorage({
+
   destination: (req, file, next) => {
+    console.log('ava')
+    console.log(file)
     next(null, `${path}`);
   },
   filename: (req, file, next) => {
@@ -14,6 +17,8 @@ exports.setPath = (path) => multer.diskStorage({
 
 //Filter file type
 exports.FileTypeFilter = (type) => (req, file, next) => {
+  console.log('ava')
+  console.log(file)
   if (file.mimetype.startsWith(`${type}`)) {
     next(null, true);
   } else {

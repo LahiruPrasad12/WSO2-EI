@@ -3,5 +3,5 @@ const resource = '/api/owner';
 
 export default {
     listPrduct: () => api.get(`${resource}`),
-    createPrduct: (payload) => api.post(`${resource}`, payload),
+    createProduct: (payload) => api.post(`${resource}`, payload),
 }
