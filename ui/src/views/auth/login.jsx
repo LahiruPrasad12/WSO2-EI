@@ -18,8 +18,14 @@ export function Login() {
         password: data.password
       }
       let respond = await auth.login(payload)
+      console.log(respond.data.data.user.role)
       localStorage.setItem('JWT', respond.data.token)
-      window.location = '/homeclient'
+      if(respond.data.data.user.role === 'owner'){
+        window.location = '/homeowner'
+      }else {
+        window.location = '/homeclient'
+      }
+
     } catch (e) {
       setError('Your user name or password is incorrect')
     }

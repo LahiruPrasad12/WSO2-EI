@@ -1,7 +1,10 @@
 import React,{ useContext } from "react";
-import { Link } from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 import AuthContext from '../context/AuthContext';
 import auth from "../apis/modules/auth";
+import {Login} from "../views/auth/login";
+import Register from "../views/auth/register";
+import LandingPage from "../landing_page/landingPage";
 
 
 export default function Header() {
@@ -25,11 +28,40 @@ export default function Header() {
 
             <div class="links">
               <ul>
-                <Link to="/"><li><a >Home</a></li></Link>
-                <Link to="/homeclient"><li><a>Products</a></li></Link>
-                <Link to="/homeowner"><li><a>Product Listing Form</a></li></Link>
-                <Link to="/cart"><li><a>Testimonials</a></li></Link>
-                {loggedIn === null?<Link to="/login"><li class="btn2">Sign in</li></Link>:<Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>}
+
+                {/*unauthorized user*/}
+                {
+                    loggedIn === null && (<>
+                      <Link to="/login"><li><a >Home</a></li></Link>
+                      <Link to="/login"><li><a>Products</a></li></Link>
+                      <Link to="/"><li><a>Testimonials</a></li></Link>
+                      <Link to="/login"><li class="btn2">Sign in</li></Link>
+                    </>)
+                }
+
+                {/*owner routes*/}
+                {
+                    loggedIn !== null &&loggedIn.role === 'owner'&& (<>
+                      <Link to="/homeowner"><li><a>MY Products</a></li></Link>
+                      <Link to="/add-product"><li><a>Product Listing Form</a></li></Link>
+                      <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
+                    </>)
+                }
+
+                {/*client routes*/}
+                {
+                    loggedIn !== null &&loggedIn.role === 'buyer'&& (<>
+                      <Link to="/homeclient"><li><a>Home</a></li></Link>
+                      <Link to="/homeclient"><li><a>Products</a></li></Link>
+                      <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
+                    </>)
+                }
+
+
+
+
+
+                {/*{loggedIn === null?<Link to="/login"><li class="btn2">Sign in</li></Link>:<Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>}*/}
               </ul>
           </div>
         </div>

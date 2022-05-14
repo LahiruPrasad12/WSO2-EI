@@ -1,10 +1,24 @@
-import React from "react";
+import React, {useContext} from "react";
 import './landingPagestyle.css';
 import {Link} from 'react-router-dom';
 import Footer from "../layouts/footer";
 import Header from "../layouts/header";
+import AuthContext from "../context/AuthContext";
 
 export default function LandingPage(){
+
+  const { loggedIn } = useContext(AuthContext);
+
+  const redirectPage = ()=>{
+    if(loggedIn === null){
+      window.location = '/login'
+    }else if(loggedIn.role === 'owner'){
+      window.location = '/homeowner'
+    }else {
+      window.location = '/homeclient'
+    }
+
+  }
 
     return (
         <>
@@ -34,7 +48,7 @@ export default function LandingPage(){
               </p>
               <div class="cta">
 
-                <Link to="/home"><li href="#" class="btn2">Get started</li></Link>
+                <li href="#" onClick={redirectPage} class="btn2">Get started</li>
 
               </div>
             </div>
