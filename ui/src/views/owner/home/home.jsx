@@ -46,6 +46,7 @@ const Home_Owner = () => {
                 <div className='shopc'>
                     <h1>Add Product</h1>
                     <p><Link to="/">Home</Link> / <Link to="/homeowner">Add Product</Link></p>
+
                 </div>
                 <form>
                     <div className="row mb-4">
