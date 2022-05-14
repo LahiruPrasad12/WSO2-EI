@@ -31,6 +31,7 @@ const Routers = () => {
 
             {
                 loggedIn !== null && (<>
+                    <Route exact path="/" component={LandingPage} />
                     <Route exact path="/homeclient"><ClientHome /></Route>
                     <Route exact path="/homeowner"><OwnerHome /></Route>
                     <Route exact path="/add-product"><AddProduct /></Route>
