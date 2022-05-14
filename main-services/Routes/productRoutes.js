@@ -6,7 +6,7 @@ const router = express.Router();
 //This api-resource route for update and delete specific student
 router.route('/')
   .get(authController.protect, authController.restrictTo('owner'), productController.listProducts)
-  .post(authController.protect, authController.restrictTo('owner'), productController.saveProduct);
+  .post(authController.protect, authController.restrictTo('owner'),productController.uploadProductPhoto, productController.saveProduct);
 
 //This api-resource route for update and delete specific student
 router.route('/:id')

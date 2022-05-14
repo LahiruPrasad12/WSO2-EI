@@ -9,6 +9,7 @@ export default function Register(){
     // const [password, setPassword] = useState("");
     // const [email, setEmail] = useState("");
     // const [passwordConfirm, setpasswordConfirm] = useState("");
+    const [error, setError] = useState("");
 
     const register = async (data)=>{
         try{
@@ -17,10 +18,10 @@ export default function Register(){
                 email:data.email,
                 password:data.password, passwordConfirm:data.passwordConfirm
             }
-            let respond = await auth.register(payload)
+            await auth.register(payload)
             window.location = '/login'
         }catch (e){
-
+            setError('Your email is already exists!!')
         }
     }
 
@@ -83,6 +84,7 @@ export default function Register(){
                                                            placeholder="Confirm Password"/>
                                                     {errors.passwordConfirm && touched.passwordConfirm ?
                                                         <p id={"login-error"} className="text-danger">{errors.passwordConfirm}</p> : null}
+                                                        {error ? <p id={"login-error"} class="text-danger">{error}</p> : null}
                                                 </div>
 
                                                 <button type="submit" class="btn btn-block login-btn mb-4">Register</button>
