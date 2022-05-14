@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import LandingPage from "./landing_page/landingPage"
-import {Login} from "./views/auth/login"
+import { Login } from "./views/auth/login"
 import Register from "./views/auth/register"
-import {ValidationSchemaExample} from './views/Test'
+import { ValidationSchemaExample } from './views/Test'
 import {
     BrowserRouter as Router,
     Route,
@@ -20,24 +20,26 @@ const Routers = () => {
         <Router>
             {
                 loggedIn === null && (<>
-                    <Route exact path = "/login"><Login/></Route>
-                    <Route exact path = "/register"><Register/></Route>
+                    <Route exact path="/login"><Login /></Route>
+                    <Route exact path="/register"><Register /></Route>
                     <Route exact path="/" component={LandingPage} />
+
                     <Route exact path = "/homeowner"><Home_Owner/></Route>
                     <Route exact path = "/homeclient"><ClientHome/></Route>
                     <Route exact path = "/cart"><Cart/></Route>
                     <Route exact path = "/cardpay"><Cardpay/></Route>
+
                 </>)
             }
 
             {
                 loggedIn !== null && (<>
-                    {/* <Route exact path = "/homeclient"><ClientHome/></Route> */}
+                    <Route exact path="/homeclient"><ClientHome /></Route>
+                    <Route exact path="/homeowner"><Home_Owner /></Route>
                 </>)
             }
 
-
-            <Route exact path = "/test"><ValidationSchemaExample/></Route>
+            <Route exact path="/test"><ValidationSchemaExample /></Route>
 
         </Router>
     );
