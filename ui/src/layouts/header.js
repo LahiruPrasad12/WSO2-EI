@@ -25,9 +25,12 @@ export default function Header() {
 
             <div class="links">
               <ul>
+                {
+                  loggedIn !== null && loggedIn.role === 'owner'? <Link to="/homeowner"><li><a>Product Listing Form</a></li></Link>:<Link to="/homeclient"><li><a>Products</a></li></Link>
+                }
                 <Link to="/"><li><a >Home</a></li></Link>
-                <Link to="/homeclient"><li><a>Products</a></li></Link>
-                <Link to="/homeowner"><li><a>Product Listing Form</a></li></Link>
+
+
                 <Link to="/"><li><a>Testimonials</a></li></Link>
                 {loggedIn === null?<Link to="/login"><li class="btn2">Sign in</li></Link>:<Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>}
               </ul>

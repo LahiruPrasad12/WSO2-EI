@@ -8,7 +8,8 @@ import {
     Route,
 } from "react-router-dom";
 import ClientHome from './views/client/home/home';
-import Home_Owner from './views/owner/home/home';
+import AddProduct from './views/owner/home/addProduct';
+import OwnerHome from './views/owner/home/home';
 import AuthContext from "./context/AuthContext";
 
 const Routers = () => {
@@ -21,7 +22,7 @@ const Routers = () => {
                     <Route exact path="/login"><Login /></Route>
                     <Route exact path="/register"><Register /></Route>
                     <Route exact path="/" component={LandingPage} />
-                    <Route exact path="/homeowner"><Home_Owner /></Route>
+                    <Route exact path="/homeowner"><OwnerHome /></Route>
                     <Route exact path="/homeclient"><ClientHome /></Route>
                 </>)
             }
@@ -29,7 +30,8 @@ const Routers = () => {
             {
                 loggedIn !== null && (<>
                     <Route exact path="/homeclient"><ClientHome /></Route>
-                    <Route exact path="/homeowner"><Home_Owner /></Route>
+                    <Route exact path="/homeowner"><OwnerHome /></Route>
+                    <Route exact path="/add-prodcut"><AddProduct /></Route>
                 </>)
             }
 
