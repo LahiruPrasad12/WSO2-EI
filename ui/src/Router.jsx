@@ -15,6 +15,7 @@ const Routers = () => {
         <Router>
             <Route exact path = "/login"><Login/></Route>
             <Route exact path = "/register"><Register/></Route>
+            
             <Route exact path="/" component={LandingPage} />
             <Route exact path = "/home"><Home/></Route>
             <Route exact path = "/test"><ValidationSchemaExample/></Route>
