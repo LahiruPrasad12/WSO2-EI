@@ -52,7 +52,7 @@ export default function Header() {
                 {
                     loggedIn !== null &&loggedIn.role === 'buyer'&& (<>
                       <Link to="/homeclient"><li><a>Home</a></li></Link>
-                      <Link to="/add-product"><li><a>Products</a></li></Link>
+                      <Link to="/homeclient"><li><a>Products</a></li></Link>
                       <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
                     </>)
                 }
