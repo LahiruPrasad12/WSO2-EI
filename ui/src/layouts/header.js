@@ -29,6 +29,7 @@ export default function Header() {
             <div class="links">
               <ul>
 
+                {/*unauthorized user*/}
                 {
                     loggedIn === null && (<>
                       <Link to="/login"><li><a >Home</a></li></Link>
@@ -38,6 +39,7 @@ export default function Header() {
                     </>)
                 }
 
+                {/*owner routes*/}
                 {
                     loggedIn !== null &&loggedIn.role === 'owner'&& (<>
                       <Link to="/homeowner"><li><a>MY Products</a></li></Link>
@@ -46,8 +48,9 @@ export default function Header() {
                     </>)
                 }
 
+                {/*client routes*/}
                 {
-                    loggedIn !== null &&loggedIn.role === 'user'&& (<>
+                    loggedIn !== null &&loggedIn.role === 'buyer'&& (<>
                       <Link to="/homeclient"><li><a>Home</a></li></Link>
                       <Link to="/add-product"><li><a>Products</a></li></Link>
                       <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
