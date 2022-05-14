@@ -19,19 +19,13 @@ const Routers = () => {
 
     return (
         <Router>
-            {
-                loggedIn === null && (<>
-                    <Route exact path="/login"><Login /></Route>
-                    <Route exact path="/register"><Register /></Route>
-                    <Route exact path="/" component={LandingPage} />
-                    {/*<Route exact path="/homeowner"><OwnerHome /></Route>*/}
-                    {/*<Route exact path="/homeclient"><ClientHome /></Route>*/}
-                </>)
-            }
+
+            <Route exact path="/login"><Login /></Route>
+            <Route exact path="/register"><Register /></Route>
+            <Route exact path="/" component={LandingPage} />
 
             {
                 loggedIn !== null && (<>
-                    <Route exact path="/" component={LandingPage} />
                     <Route exact path="/homeclient"><ClientHome /></Route>
                     <Route exact path="/homeowner"><OwnerHome /></Route>
                     <Route exact path="/add-product"><AddProduct /></Route>
