@@ -1,6 +1,21 @@
 const Product = require("../Models/productModel");
 const Filters = require("../Utils/filters");
 const User = require("../Models/userModel");
+const FileUpload = require("../Utils/fileUpload");
+const multer = require("multer");
+
+
+
+const multerStorage = FileUpload.setPath('public/img/product')
+const multerFilter = FileUpload.FileTypeFilter('image')
+
+const upload = multer({
+  storage: multerStorage ,
+  fileFilter: multerFilter
+});
+
+exports.uploadProductPhoto = upload.single('photo');
+
 
 // list all the products
 exports.listProducts = async (req, res) => {
@@ -29,6 +44,7 @@ exports.findProduct = async (req, res) => {
 // create / update a product
 exports.saveProduct = async (req, res) => {
   try {
+    req.body.image = req.file.filename
     const new_product = await Product.create(req.body)
     return res.status(200).json({
       message: "Product was saved successfully",

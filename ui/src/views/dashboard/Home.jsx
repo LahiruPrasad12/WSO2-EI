@@ -15,7 +15,7 @@ const Home = () => {
             name:"product 1"
         }
 
-        let respond = await product.createPrduct(data)
+        let respond = await product.createProduct(data)
     }
     return (
         <div>
