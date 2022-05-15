@@ -1,11 +1,11 @@
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import owner from '../../../apis/modules/owner'
 import { useDropzone } from "react-dropzone";
 import { Formik, Form, Field } from 'formik'
-import {ProductSchema} from "../../../validations";
+import { ProductSchema } from "../../../validations";
 
 const Home_Owner = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -88,7 +88,7 @@ const Home_Owner = () => {
 
             await owner.createProduct(formdata)
 
-            window.location = '/homeclient'
+            window.location = '/homeowner'
         } catch (e) {
 
         }
@@ -104,7 +104,7 @@ const Home_Owner = () => {
                     <h1>Add Product</h1>
                     <p><Link to="/">Home</Link> / <Link to="/homeowner">Add Product</Link></p>
                 </div>
-                <Formik  initialValues={{
+                <Formik initialValues={{
                     stock: '',
                     size: '',
                     category: '',
@@ -113,59 +113,59 @@ const Home_Owner = () => {
                     description: '',
                     name: '',
                 }}
-                         validationSchema={ProductSchema}
-                         onSubmit={values => {
-                             addProduct(values)
-                         }}
+                    validationSchema={ProductSchema}
+                    onSubmit={values => {
+                        addProduct(values)
+                    }}
                 >
-                    {({ errors, touched })=>(
+                    {({ errors, touched }) => (
                         <Form>
                             <div className="row mb-4">
                                 <div className="col">
                                     <div className="form-group">
-                                        <label style={{fontWeight: 'bold', color: '#5D5D5D'}} className="form-label">*Product Name</label>
+                                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Product Name</label>
                                         <Field type="text" name="name" id="name" class="form-control" placeholder="Product name" />
                                         {errors.name && touched.name ? <p id={"login-error"} class="text-danger mt-1">{errors.name}</p> : null}
                                     </div>
                                 </div>
                                 <div className="col">
                                     <div className="form-outline">
-                                        <label style={{fontWeight: 'bold', color: '#5D5D5D'}}
-                                               className="form-label">*SKU</label>
+                                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }}
+                                            className="form-label">*SKU</label>
                                         <Field type="text" id="sku" name="sku" className="form-control"
-                                               placeholder="Enter SKU"/>
+                                            placeholder="Enter SKU" />
                                         {errors.sku && touched.sku ?
                                             <p id={"login-error"} className="text-danger mt-1">{errors.sku}</p> : null}
                                     </div>
                                 </div>
                             </div>
                             <div className="form-outline mb-4">
-                                <label style={{fontWeight: 'bold', color: '#5D5D5D'}}
-                                       className="form-label">*SKU</label>
+                                <label style={{ fontWeight: 'bold', color: '#5D5D5D' }}
+                                    className="form-label">*Quantity</label>
                                 <Field type="text" id="size" name="size" className="form-control"
-                                       placeholder="Enter SKU"/>
+                                    placeholder="Enter SKU" />
                                 {errors.size && touched.size ?
                                     <p id={"login-error"} className="text-danger mt-1">{errors.size}</p> : null}
                             </div>
                             <div className="form-outline mb-4">
                                 <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Price</label>
-                                <Field type="number" id="price" name="price" className="form-control" placeholder="Enter Price"/>
+                                <Field type="number" id="price" name="price" className="form-control" placeholder="Enter Price" />
                                 {errors.price && touched.price ?
                                     <p id={"login-error"} className="text-danger mt-1">{errors.price}</p> : null}
                             </div>
                             <div className="form-outline mb-4">
                                 <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Stock</label>
-                                <Field type="number" id="stock" name="stock" className="form-control" placeholder="Enter Stock Quantity"/>
+                                <Field type="number" id="stock" name="stock" className="form-control" placeholder="Enter Stock Quantity" />
                                 {errors.stock && touched.stock ?
                                     <p id={"login-error"} className="text-danger mt-1">{errors.stock}</p> : null}
                             </div>
                             <div className="form-outline mb-4">
                                 <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Description</label>
-                                <textarea  className="form-control" id="description" name="description" rows="5" placeholder="Enter Product Description"
-                                           onChange={(e) => { setDesctription(e.target.value) }}></textarea >
+                                <textarea className="form-control" id="description" name="description" rows="5" placeholder="Enter Product Description"
+                                    onChange={(e) => { setDesctription(e.target.value) }}></textarea >
 
                             </div>
-                            <div hidden={filepath.length>0} {...getRootProps({ style })}>
+                            <div hidden={filepath.length > 0} {...getRootProps({ style })}>
                                 <input {...getInputProps()} />
                                 <p>Drag 'n' drop your image file here, or click to select files</p>
                             </div>
@@ -177,7 +177,7 @@ const Home_Owner = () => {
                             </center>
                             <br />
                         </Form>
-                        )}
+                    )}
                 </Formik>
             </div>
             <Footer />

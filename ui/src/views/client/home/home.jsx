@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import buyer from '../../../apis/modules/buyer'
+import { useCart } from 'react-use-cart'
 
 const ClientHome = () => {
 
     const [products, setProducts] = useState([]);
+    const { addItem } = useCart();
 
     const listProduct = async () => {
         try {
@@ -34,9 +36,9 @@ const ClientHome = () => {
                 </div>
                 <div className='c2'>
                     <div class='rowp'>
-                        {products.map(item => {
+                        {products.map((item, index) => {
                             return (
-                                <div class="cardp">
+                                <div class="cardp" key={index}>
                                     <>
                                         <div class="imgBx">
                                             <img src={"http://localhost:5000/img/product/" + item.image} />
@@ -50,7 +52,7 @@ const ClientHome = () => {
                                             <div class="color" style={{ padding: "5px" }}>
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            <Link to="/itemview">View</Link>
+                                            <div className='btn btn-light' href="#" onClick={() => addItem(item)}>Add to Cart</div>
                                         </div>
                                     </>
                                 </div>
