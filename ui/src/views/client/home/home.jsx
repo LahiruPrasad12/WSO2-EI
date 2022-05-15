@@ -50,7 +50,7 @@ const ClientHome = () => {
                                             <div class="color" style={{ padding: "5px" }}>
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            <div className='btn btn-light' href="#">Add to Cart</div>
+                                            <Link to="/itemview">View</Link>
                                         </div>
                                     </>
                                 </div>
