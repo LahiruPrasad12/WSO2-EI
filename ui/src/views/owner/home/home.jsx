@@ -29,8 +29,8 @@ const OwnerHome = () => {
 
             <div class="container" >
                 <div className='shopc'>
-                    <h1>Add Product</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/add-product">Add Product</Link></p>
+                    <h1>MY PRODUCT LISTING</h1>
+                    <p><Link to="/">Home</Link> / Add Product</p>
 
                 </div>
                 <div className='c2'>
@@ -51,7 +51,7 @@ const OwnerHome = () => {
                                             <div class="color" style={{ padding: "5px" }}>
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            {/* <div className='btn btn-light' href="#">Add to Cart</div> */}
+                                            <div className='btn btn-light'>Edit</div>
                                         </div>
                                     </>
                                 </div>

@@ -32,7 +32,7 @@ const ClientHome = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>SHOP THE COLLECTION</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/home">Collection</Link></p>
+                    <p><Link to="/">Home</Link> / Products</p>
                 </div>
                 <div className='c2'>
                     <div class='rowp'>
@@ -52,7 +52,8 @@ const ClientHome = () => {
                                             <div class="color" style={{ padding: "5px" }}>
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            <div className='btn btn-light' href="#" onClick={() => addItem(item)}>Add to Cart</div>
+                                            {/* <div className='btn btn-light' href="#" onClick={() => addItem(item)}>Add to Cart</div> */}
+                                            <Link to="/itemview">View</Link>
                                         </div>
                                     </>
                                 </div>
