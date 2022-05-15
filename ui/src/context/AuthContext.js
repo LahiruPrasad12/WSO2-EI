@@ -5,7 +5,7 @@ import auth from "../apis/modules/auth";
 const AuthContext = createContext();
 
 function AuthContextProvider(props) {
-    const [loggedIn, setloggedIn] = useState(undefined);
+    const [loggedIn, setloggedIn] = useState({});
 
     async function getLogged(){
        try{

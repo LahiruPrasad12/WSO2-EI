@@ -60,6 +60,7 @@ exports.saveProduct = async (req, res) => {
   try {
     req.body.user_id = req.user._id
     req.body.image = req.file.filename
+    console.log(req.file)
     const new_product = await Product.create(req.body)
     return res.status(200).json({
       message: "Product was saved successfully",

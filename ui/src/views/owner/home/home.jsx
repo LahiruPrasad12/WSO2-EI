@@ -1,98 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import '../../client/home/chome.css'
 import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
-import owner from '../../../apis/modules/owner'
+import buyer from '../../../apis/modules/buyer'
 
-const Home_Owner = () => {
-    const [product, setAddProduct] = useState({
-        name: '',
-        description: '',
-        price: '',
-        sku: '',
-        size: '',
-        stock: '',
-        category: '',
-        photo: ''
-    })
+const OwnerHome = () => {
 
-    const handleAddProduct = async (e) => {
-        e.preventDefault();
+    const [products, setProducts] = useState([]);
+
+    const listProduct = async () => {
         try {
-            // console.log(product)
-            const payload = {
-                name: product.name,
-                description: product.description,
-                price: product.price,
-                sku: product.sku,
-                size: product.size,
-                stock: product.stock,
-                category: product.category,
-                // photo: product.photo
-            }
-
-            await owner.createPrduct(payload)
-            window.location = '/homeclient'
-        } catch (e) {
-            // setError('Your email is already exists!!')
+            const productsArr = await buyer.listPrduct()
+            setProducts(productsArr.data)
+        } catch {
+            setProducts(null)
         }
     }
 
+    useEffect(() => {
+        listProduct()
+    }, [])
+
     return (
-        <>
+        <div>
             <Header />
             <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
-            <div className='container'>
+
+            <div class="container" >
                 <div className='shopc'>
                     <h1>Add Product</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/homeowner">Add Product</Link></p>
+                    <p><Link to="/">Home</Link> / <Link to="/add-product">Add Product</Link></p>
 
                 </div>
-                <form>
-                    <div className="row mb-4">
-                        <div className="col">
-                            <div className="form-group">
-                                <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Product Name</label>
-                                <input type="text" id="productName" name="productName" className="form-control" placeholder="Enter Product Name" value={product.name} onChange={e => setAddProduct({ ...product, name: e.target.value })} required />
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="form-outline">
-                                <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*SKU</label>
-                                <input type="text" id="sku" name="sku" className="form-control" placeholder="Enter SKU" value={product.sku} onChange={e => setAddProduct({ ...product, sku: e.target.value })} required />
-                            </div>
-                        </div>
+                <div className='c2'>
+                    <div class='rowp'>
+                        {products.map(item => {
+                            return (
+                                <div class="cardp">
+                                    <>
+                                        <div class="imgBx">
+                                            <img src={"http://localhost:5000/img/product/" + item.image} />
+                                        </div><div class="contentBx">
+                                        <h2>{item.name}</h2>
+                                        <p style={{ color: '#ffffff' }}>Price : {item.price}</p>
+                                        <div class="size">
+                                            <h3>Size :</h3>
+                                            <span>{item.size}</span>
+                                        </div>
+                                        <div class="color" style={{ padding: "5px" }}>
+                                            <h3>SKU : {item.sku}</h3>
+                                        </div>
+                                        <div className='btn btn-light' href="#">Add to Cart</div>
+                                    </div>
+                                    </>
+                                </div>
+                            )
+                        })}
                     </div>
-
-                    <div className="form-outline mb-4">
-                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Size</label>
-                        <input type="text" id="size" name="size" className="form-control" placeholder="Enter Size" value={product.size} onChange={e => setAddProduct({ ...product, size: e.target.value })} required />
-                    </div>
-                    <div className="form-outline mb-4">
-                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Price</label>
-                        <input type="number" id="price" name="price" className="form-control" placeholder="Enter Price" value={product.price} onChange={e => setAddProduct({ ...product, price: e.target.value })} required />
-                    </div>
-                    <div className="form-outline mb-4">
-                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Stock</label>
-                        <input type="number" id="stock" name="stock" className="form-control" placeholder="Enter Stock Quantity" value={product.stock} onChange={e => setAddProduct({ ...product, stock: e.target.value })} required />
-                    </div>
-                    <div className="form-outline mb-4">
-                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Description</label>
-                        <textarea className="form-control" id="description" name="description" rows="5" placeholder="Enter Product Description" value={product.description} onChange={e => setAddProduct({ ...product, description: e.target.value })} required></textarea>
-                    </div>
-                    <div className="form-outline mb-4">
-                        <label style={{ fontWeight: 'bold', color: '#5D5D5D' }} className="form-label">*Upload Image</label>
-                        <input type="file" id="photo" style={{ width: '300px' }} className="form-control" onChange={e => setAddProduct({ ...product, photo: e.target.files[0] })} required accept=".png" />
-                    </div>
-                    <br />
-                    <center>
-                        <button type="submit" className="btn btn-primary" onClick={handleAddProduct}>Add Product</button>
-                    </center>
-                </form>
+                </div>
             </div>
             <Footer />
-        </>
-    );
-};
+        </div>
+    )
+}
 
-export default Home_Owner;
+export default OwnerHome;
