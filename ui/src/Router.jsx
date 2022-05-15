@@ -13,6 +13,7 @@ import OwnerHome from './views/owner/home/home';
 import AuthContext from "./context/AuthContext";
 import Cart from './views/client/cart/cart';
 import Cardpay from './views/client/payment/cardpay';
+import Itemview from './views/itemview/itemview';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);
@@ -29,6 +30,7 @@ const Routers = () => {
                     <Route exact path="/homeclient"><ClientHome /></Route>
                     <Route exact path="/homeowner"><OwnerHome /></Route>
                     <Route exact path="/add-product"><AddProduct /></Route>
+                    <Route exact path="/itemview"><Itemview /></Route>
                     <Route exact path="/cart"><Cart /></Route>
                 </>)
             }
