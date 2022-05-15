@@ -22,27 +22,23 @@ const Cart = () => {
         <>
      <Header />
             <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
-
             <div class="container" >
                 <div className='shopc'>
                     <h1>CART</h1>
                     <p><Link to="/">Home</Link> / Cart</p>
                 </div>
             </div>    
-            <div class="container-fluid  mt-100">
-				 <div class="row">
-						<div class="cardec">
+            <div class="container">
+				<div class="card-body cart">
+						<div class="col-sm-12 empty-cart-cls text-center">
+                            <div style={{padding: '40px', color: '#515151'}}><svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></div>
+							<h4><strong style={{padding: '40px', color: '#515151'}}>Your Cart is Empty</strong></h4>
+							<h5 style={{color: '#515151'}}>Add something to make me happy :)</h5>
+							<Link to="/homeclient"><div className='btn2'>Continue Shopping</div></Link>
 						</div>
-						<div class="card-body cart">
-								<div class="col-sm-12 empty-cart-cls text-center">
-                                <div ><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></div>
-									<h3><strong>Your Cart is Empty</strong></h3>
-									<h4>Add something to make me happy :)</h4>
-									<a href="#" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Continue Shopping</a>
-								</div>
-						</div>
-					</div>
 				</div>
+			</div>
+    <Footer/>                
     </>
     );
     return (

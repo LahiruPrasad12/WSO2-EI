@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import './cardpay.css'
-import './cardpay'
-import $ from 'jquery'
 
 const Cardpay = () => {
     return (
