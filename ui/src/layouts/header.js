@@ -5,6 +5,7 @@ import auth from "../apis/modules/auth";
 import {Login} from "../views/auth/login";
 import Register from "../views/auth/register";
 import LandingPage from "../landing_page/landingPage";
+import "../landing_page/landingPagestyle.css";
 
 
 export default function Header() {
