@@ -30,7 +30,7 @@ const Routers = () => {
                     <Route exact path="/homeclient"><ClientHome /></Route>
                     <Route exact path="/homeowner"><OwnerHome /></Route>
                     <Route exact path="/add-product"><AddProduct /></Route>
-                    <Route exact path="/itemview"><Itemview /></Route>
+                    <Route exact path="/itemview/:id"><Itemview /></Route>
                     <Route exact path="/cart"><Cart /></Route>
                 </>)
             }

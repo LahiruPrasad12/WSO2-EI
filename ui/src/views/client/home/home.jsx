@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import buyer from '../../../apis/modules/buyer'
-import { useCart } from 'react-use-cart'
 
 const ClientHome = () => {
 
     const [products, setProducts] = useState([]);
-    const { addItem } = useCart();
 
     const listProduct = async () => {
         try {
@@ -53,7 +51,7 @@ const ClientHome = () => {
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
                                             {/* <div className='btn btn-light' href="#" onClick={() => addItem(item)}>Add to Cart</div> */}
-                                            <Link to="/itemview">View</Link>
+                                            <Link to={`/itemview/${item._id}`}>View</Link>
                                         </div>
                                     </>
                                 </div>
