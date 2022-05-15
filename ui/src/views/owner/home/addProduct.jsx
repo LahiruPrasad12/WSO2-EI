@@ -101,8 +101,8 @@ const Home_Owner = () => {
             <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
             <div className='container'>
                 <div className='shopc'>
-                    <h1>Add Product</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/homeowner">Add Product</Link></p>
+                    <h1>ADD PRODUCT</h1>
+                    <p><Link to="/">Home</Link> / Add Product</p>
                 </div>
                 <Formik initialValues={{
                     stock: '',
@@ -143,7 +143,7 @@ const Home_Owner = () => {
                                 <label style={{ fontWeight: 'bold', color: '#5D5D5D' }}
                                     className="form-label">*Quantity</label>
                                 <Field type="text" id="size" name="size" className="form-control"
-                                    placeholder="Enter SKU" />
+                                    placeholder="Enter Quantity" />
                                 {errors.size && touched.size ?
                                     <p id={"login-error"} className="text-danger mt-1">{errors.size}</p> : null}
                             </div>
