@@ -3,7 +3,7 @@ import '../../client/home/chome.css'
 import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
-import buyer from '../../../apis/modules/buyer'
+import owner from '../../../apis/modules/owner'
 
 const OwnerHome = () => {
 
@@ -11,7 +11,7 @@ const OwnerHome = () => {
 
     const listProduct = async () => {
         try {
-            const productsArr = await buyer.listPrduct()
+            const productsArr = await owner.listPrduct()
             setProducts(productsArr.data)
         } catch {
             setProducts(null)
@@ -42,17 +42,17 @@ const OwnerHome = () => {
                                         <div class="imgBx">
                                             <img src={"http://localhost:5000/img/product/" + item.image} />
                                         </div><div class="contentBx">
-                                        <h2>{item.name}</h2>
-                                        <p style={{ color: '#ffffff' }}>Price : {item.price}</p>
-                                        <div class="size">
-                                            <h3>Size :</h3>
-                                            <span>{item.size}</span>
+                                            <h2>{item.name}</h2>
+                                            <p style={{ color: '#ffffff' }}>Price : {item.price}</p>
+                                            <div class="size">
+                                                <h3>Size :</h3>
+                                                <span>{item.size}</span>
+                                            </div>
+                                            <div class="color" style={{ padding: "5px" }}>
+                                                <h3>SKU : {item.sku}</h3>
+                                            </div>
+                                            {/* <div className='btn btn-light' href="#">Add to Cart</div> */}
                                         </div>
-                                        <div class="color" style={{ padding: "5px" }}>
-                                            <h3>SKU : {item.sku}</h3>
-                                        </div>
-                                        <div className='btn btn-light' href="#">Add to Cart</div>
-                                    </div>
                                     </>
                                 </div>
                             )
