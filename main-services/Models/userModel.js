@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
-const autoIncrement = require('mongoose-auto-increment');
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -46,14 +46,9 @@ const userSchema = new mongoose.Schema({
     passwordResetExpires: Date,
 });
 
-autoIncrement.initialize(mongoose.connection);
 
-userSchema.plugin(autoIncrement.plugin, {
-    model: "User", // collection or table name in which you want to apply auto increment
-    field: "id", // field of model which you want to auto increment
-    startAt: 1, // start your auto increment value from 1
-    incrementBy: 1, // incremented by 1
-});
+
+
 
 /**Middleware */
 
