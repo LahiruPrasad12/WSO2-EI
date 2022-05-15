@@ -40,7 +40,7 @@ const Product = require("../Models/productModel");
 
 // validate order products
 // validate the request and check if there is product_id, product_quantity,
-exports.ValidateOrderProducts = async (req, res) => {
+exports.ValidateOrderProducts = async (req, res,next) => {
   const order = req.body;
   let err_message = "";
 

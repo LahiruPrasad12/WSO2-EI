@@ -69,34 +69,44 @@ exports.storeToCart = async (req, res) => {
       req.body.products &&
       Array.isArray(req.body.products) &&
       req.body.products.length > 0
-    )
+    ) {
+
+
       validatedCart = await OrderValidator.ValidateOrderProducts(req, res);
+      console.log(validatedCart);
+    }
     else {
       // no cart products means that user has deleted all the products from the cart
       // we can allow it because the cart can be empty
       validatedCart.products = [];
       validatedCart.payment_value = 0;
     }
-    // get cart details
-    let cart = await Cart.findOne({ user_id: req.user._id });
-    if (!cart) {
-      // if-the user does not have a cart
-      cart = new Cart({
-        user_id: req.user._id,
-        products: validatedCart.products,
-        payment_value: validatedCart.payment_value,
-      });
-    } else {
-      // if the user already have a cart
-      cart.products = validatedCart.products;
-      cart.payment_value = validatedCart.payment_value;
+
+    if(!validatedCart.products){
+
+    }else {
+      // get cart details
+      let cart = await Cart.findOne({ user_id: req.user._id });
+      if (!cart) {
+        // if-the user does not have a cart
+        cart = new Cart({
+          user_id: req.user._id,
+          products: validatedCart.products,
+          payment_value: validatedCart.payment_value,
+        });
+      } else {
+        // if the user already have a cart
+        cart.products = validatedCart.products;
+        cart.payment_value = validatedCart.payment_value;
+      }
+      // save cart
+      const result = await cart.save();
+      if (result && result.error) return res.status(400).json(result);
+      return res
+          .status(200)
+          .json({ message: "All changes was saved", cart: result._doc });
     }
-    // save cart
-    const result = await cart.save();
-    if (result && result.error) return res.status(400).json(result);
-    return res
-      .status(200)
-      .json({ message: "All changes was saved", cart: result._doc });
+
   } catch (error) {
     console.error(error);
     return res.status(400).json({ message: "Invalid cart details" });
