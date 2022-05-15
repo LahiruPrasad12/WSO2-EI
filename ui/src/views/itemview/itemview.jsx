@@ -13,7 +13,7 @@ const Itemview = () => {
         <div class="container" >
         <div className='shopc'>
             <h1>PRODUCT DETAILS</h1>
-            <p><Link to="/">Home</Link> / <Link to="/homeclient">Products</Link> / <Link to="/itemview">Item id eka dapan</Link></p>
+            <p><Link to="/">Home</Link> / <Link to="/homeclient">Products</Link> / Item id eka dapan</p>
         </div>
         <div class="container">
             <div class="product-content product-wrap clearfix product-deatil">

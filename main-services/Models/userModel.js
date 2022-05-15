@@ -47,6 +47,9 @@ const userSchema = new mongoose.Schema({
 });
 
 
+
+
+
 /**Middleware */
 
 //This middleware performs encrypt password to save the database
