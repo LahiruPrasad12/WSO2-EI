@@ -75,17 +75,25 @@ const Cart = () => {
                                                 <div class="font-size-lg text-primary pt-2">Rs. {item.price}</div>
                                             </div>
                                         </div>
-                                        <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style={{ width: "10rem" }}>
-                                            <div class="form-group mb-2" style={{ textAlign: "center" }}>
+                                        
+
+                                        <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style={{ width: "auto" }}>
+                                            {/* <div class="form-group mb-2" style={{ textAlign: "center" }}>
                                                 <label for="quantity1">Qty: {item.quantity}</label>
                                                 <input class="form-control form-control-sm" type="number" id="quantity1" onChange={(e) => setQty(e.target.value)} min={0} />
-                                            </div>
-                                            <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="button" onClick={() => updateItemQuantity(item.id, qty)}>
+                                            </div> */}
+                                            {/* <button class="btn btn-outline-secondary btn-sm btn-block mb-2" type="button" onClick={() => updateItemQuantity(item.id, qty)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw mr-1">
                                                     <polyline points="23 4 23 10 17 10"></polyline>
                                                     <polyline points="1 20 1 14 7 14"></polyline>
                                                     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                                                </svg>Update Cart</button>
+                                                </svg>Update Cart</button> */}
+                                            <div className='plusm'>   
+                                                <input type="button" onclick="decrementValue()" value="-" />
+                                                <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
+                                                <input type="button" onclick="incrementValue()" value="+" />
+                                            </div> 
+                                            <br/>
                                             <button class="btn btn-outline-danger btn-sm btn-block mb-2" type="button" onClick={() => removeItem(item.id)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 mr-1">
                                                     <polyline points="3 6 5 6 21 6"></polyline>
@@ -93,6 +101,8 @@ const Cart = () => {
                                                     <line x1="10" y1="11" x2="10" y2="17"></line>
                                                     <line x1="14" y1="11" x2="14" y2="17"></line>
                                                 </svg>Remove</button>
+                                                
+                                                
                                         </div>
                                     </div>
                                 )
