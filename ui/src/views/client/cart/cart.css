@@ -209,11 +209,11 @@ body{margin-top:20px;}
   margin-left: 35%;
 }
 
-		input{
+		.crt{
 			height:34px;
       width: 70px;
       text-align: center;
-      font-size: 26px;
+      font-size: 18px;
 			border:1px solid #ddd;
 			border-radius:4px;
       display: inline-block;

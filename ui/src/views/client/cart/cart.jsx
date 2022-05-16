@@ -89,9 +89,9 @@ const Cart = () => {
                                                     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                                                 </svg>Update Cart</button> */}
                                             <div className='plusm'>   
-                                                <input type="button" onclick="decrementValue()" value="-" />
-                                                <input type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
-                                                <input type="button" onclick="incrementValue()" value="+" />
+                                                <input className='crt' type="button" onclick="decrementValue()" value="-" />
+                                                <input className='crt' type="text" name="quantity" value="1" maxlength="2" max="10" size="1" id="number" />
+                                                <input className='crt' type="button" onclick="incrementValue()" value="+" />
                                             </div> 
                                             <br/>
                                             <button class="btn btn-outline-danger btn-sm btn-block mb-2" type="button" onClick={() => removeItem(item.id)}>
