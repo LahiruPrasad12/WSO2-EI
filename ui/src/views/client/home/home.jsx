@@ -42,7 +42,7 @@ const ClientHome = () => {
                                             <img src={"http://localhost:5000/img/product/" + item.image} />
                                         </div><div class="contentBx">
                                             <h2>{item.name}</h2>
-                                            <p style={{ color: '#ffffff' }}>Price : {item.price}</p>
+                                            <p style={{ color: '#ffffff' }}>Price : Rs. {item.price}</p>
                                             <div class="size">
                                                 <h3>Size :</h3>
                                                 <span>{item.size}</span>

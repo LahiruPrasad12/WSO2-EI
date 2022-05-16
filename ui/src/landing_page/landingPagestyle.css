@@ -90,7 +90,7 @@ header .container {
 
 .links a {
   color: var(--lightTwo);
-  margin-left: 4.5rem;
+  margin-left: 4rem;
   display: inline-block;
   transition: 0.3s;
 }
@@ -384,7 +384,31 @@ header .container {
   
  }
 
-
-
+ .fa,
+ .fas {
+   font-family: 'FontAwesome';
+ }
+ 
+ ul li a {
+   font-size: 1.3rem;
+   color: #343a40;
+ }
+ 
+ ul li a.cart:hover {
+   text-decoration: none;
+   color: #4cc97c;
+ }
+ 
+ ul li a.cart .cart-basket {
+   font-size: .6rem;
+   position: absolute;
+   top: -9px;
+   right: -9px;
+   width: 18px;
+   height: 18px;
+   color: #fff;
+   background-color: #2eac5e;
+   border-radius: 50%;
+ }
 
 
