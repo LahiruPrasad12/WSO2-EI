@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import LandingPage from "./landing_page/landingPage"
 import { Login } from "./views/auth/login"
-import Register from "./views/auth/register"
+import ClientRegistration from "./views/auth/clientRegistration"
+import OwnerRegistration from "./views/auth/ownerRegistration"
 import { ValidationSchemaExample } from './views/Test'
 import {
     BrowserRouter as Router,
@@ -23,7 +24,8 @@ const Routers = () => {
         <Router>
 
             <Route exact path="/login"><Login /></Route>
-            <Route exact path="/register"><Register /></Route>
+            <Route exact path="/register"><ClientRegistration /></Route>
+            <Route exact path="/owner-register"><OwnerRegistration /></Route>
             <Route exact path="/" component={LandingPage} />
 
             {
