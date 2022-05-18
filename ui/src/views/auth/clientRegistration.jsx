@@ -4,11 +4,7 @@ import auth from "../../apis/modules/auth";
 import {SignupSchema} from "../../validations";
 import {Field, Form, Formik} from "formik";
 
-export default function Register(){
-    // const [name, setName] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [passwordConfirm, setpasswordConfirm] = useState("");
+export default function ClientRegistration(){
     const [error, setError] = useState("");
 
     const register = async (data)=>{

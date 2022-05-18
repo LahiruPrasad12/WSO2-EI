@@ -10,7 +10,7 @@ const crypto = require('crypto');
 
 /**Auth controllers */
 
-//Register new user
+//ClientRegistration new user
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body)
   createSendToken(newUser, 200, res);
