@@ -11,7 +11,7 @@ export default function Header() {
   const logout = async () => {
     await auth.logout();
     localStorage.clear();
-    window.location = '/'
+    window.location = '/login'
   }
   return (
     <div class="big-wrapper">
