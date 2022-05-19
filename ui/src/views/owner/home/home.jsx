@@ -51,7 +51,7 @@ const OwnerHome = () => {
                                             <div class="color" style={{ padding: "5px" }}>
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            <Link to="/edit-product">Edit</Link>
+                                            <Link to={`/edit-product/${item._id}`}>Edit</Link>
                                         </div>
                                     </>
                                 </div>

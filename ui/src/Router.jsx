@@ -37,7 +37,7 @@ const Routers = () => {
                     <Route exact path="/add-product"><AddProduct /></Route>
                     <Route exact path="/itemview/:id"><Itemview /></Route>
                     <Route exact path="/cart"><Cart /></Route>
-                    <Route exact path="/edit-product"><EditProduct /></Route>
+                    <Route exact path="/edit-product/:id"><EditProduct /></Route>
                     <Route exact path="/payment"><Payment /></Route>
                 </>)
             }
