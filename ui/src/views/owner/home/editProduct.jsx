@@ -78,8 +78,11 @@ const EditProduct = () => {
 
     const deleteProduct = async () => {
         try {
-            await owner.deleteProduct(id)
-
+            if (window.confirm("Are you sure want to delete this item?")) {
+                await owner.deleteProduct(id)
+            } else {
+                window.location = '/homeowner'
+            }
             window.location = '/homeowner'
         } catch (e) {
 
