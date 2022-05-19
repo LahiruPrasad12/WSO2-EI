@@ -35,26 +35,33 @@ exports.makePayment = async (req, res) => {
 
                 // match credit card details
                 const transferInfo = matchCardDetails(card, validatedDetails, res);
-                // complete transaction
-                card.balance -= transferInfo.transfer_amount;
-                const result = await card.save();
+                if (transferInfo.card_no) {
+                    // complete transaction
+                    card.balance -= transferInfo.transfer_amount;
+                    const result = await card.save();
 
-                // save failed
-                if (result && result.error) {
-                    return res.status(400).json(result.error);
-                } else {
-                    notifyServer(transferInfo.order_id, transferInfo.transfer_amount);
-                    return res.status(200).json({
-                        payment: "Payment was successfully",
-                        status: 1,
-                    });
+                    // save failed
+                    if (result && result.error) {
+                        return res.status(400).json(result.error);
+                    } else {
+                        notifyServer(transferInfo.order_id, transferInfo.transfer_amount);
+                        return res.status(200).json({
+                            payment: "Payment was successfully",
+                            status: 1,
+                        });
+                    }
+
                 }
 
+
+            } else {
+                // if hashing fails
+                return res
+                    .status(400)
+                    .json({ message: "Invalid payment details, refresh and try again" });
             }
-            // if hashing fails
-            return res
-                .status(400)
-                .json({ message: "Invalid payment details, refresh and try again" });
+
+
         }
 
 

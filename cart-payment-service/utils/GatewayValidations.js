@@ -17,6 +17,7 @@ exports.validatePaymentRequest = (req, res) => {
     else return details;
 };
 
+
 // validate credit card deatils with provided details
 exports.matchCardDetails = (card, req_details, res) => {
     var err_message = "";
@@ -31,7 +32,6 @@ exports.matchCardDetails = (card, req_details, res) => {
         err_message = "Card balance is not suffient";
 
     if (err_message.length > 0){
-        console.log('ava')
         return res.status(422).json({ message: err_message });
     }
         
