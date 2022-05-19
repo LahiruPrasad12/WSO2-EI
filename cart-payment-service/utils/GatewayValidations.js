@@ -30,7 +30,13 @@ exports.matchCardDetails = (card, req_details, res) => {
     else if (card.balance < req_details.transfer_amount)
         err_message = "Card balance is not suffient";
 
-    if (err_message.length > 0)
+    if (err_message.length > 0){
+        console.log('ava')
         return res.status(422).json({ message: err_message });
-    else return req_details;
+    }
+        
+    else{
+        console.log('ava2')
+        return req_details
+    };
 };
