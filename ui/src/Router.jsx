@@ -23,6 +23,7 @@ const Routers = () => {
 
     return (
         <Router>
+            <Route exact path="/p"><Payment /></Route>
 
             <Route exact path="/login"><Login /></Route>
             <Route exact path="/register"><ClientRegistration /></Route>
