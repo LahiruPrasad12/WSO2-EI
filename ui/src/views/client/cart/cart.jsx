@@ -50,13 +50,6 @@ const Cart = () => {
         setCart(false);
         setPayment(true);
     };
-    // if(stat !== true)return(
-    //     <div>
-    //         <Payment/>
-    //     </div>
-    // )
-
-
 
     return (
         <div>

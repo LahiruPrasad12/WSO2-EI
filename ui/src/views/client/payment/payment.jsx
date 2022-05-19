@@ -20,7 +20,6 @@ const Payment = (props) => {
 
     async function sentPayment(e) {
         e.preventDefault()
-        alert('ok')
         try {
             const user_id = loggedIn._id
             console.log(loggedIn)
@@ -29,11 +28,31 @@ const Payment = (props) => {
             }
             console.log(newDetails)
             const data = (await axios.post("http://localhost:5001/cart-payment", newDetails))
-            // console.log(data)
-          
+            console.log(data)
+            SoloAlert.alert({
+                title: "Oops!",
+                body: "you purchase was success",
+                icon: "success",
+                theme: "dark",
+                useTransparency: true,
+                onOk: function () {
+
+                },
+            });
+
 
         } catch (e) {
-           
+            console.log(e.response.data.message)
+            SoloAlert.alert({
+                title: "Oops!",
+                body: e.response.data.message,
+                icon: "error",
+                theme: "dark",
+                useTransparency: true,
+                onOk: function () {
+
+                },
+            });
         }
 
     }
@@ -108,7 +127,7 @@ const Payment = (props) => {
                                             <span class="help-block" data-valmsg-for="x_zip" data-valmsg-replace="true"></span>
                                         </div>
                                         <div>
-                                            <button onClick={(e)=>{sentPayment(e)}} id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">
+                                            <button onClick={(e) => { sentPayment(e) }} id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">
                                                 <i class="fa fa-lock fa-lg"></i>&nbsp;
                                                 <span id="payment-button-amount">Pay Now</span>
                                             </button>
