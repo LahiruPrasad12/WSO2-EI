@@ -6,9 +6,10 @@ import './payment.css';
 import SoloAlert from 'soloalert'
 import axios from 'axios';
 import AuthContext from '../../../context/AuthContext';
+import { useCart } from 'react-use-cart';
 
 const Payment = (props) => {
-    const totalAmount = props.total;
+    const transfer_amount = props.total;
     const [card_no, setcard_no] = useState('')
     const [card_cvc, setcard_cvc] = useState('')
     const [exp_date, setexp_date] = useState('')
@@ -16,17 +17,19 @@ const Payment = (props) => {
     const [balance, setbalance] = useState(100)
     const [postalCode, setpostalCode] = useState(0)
     const { loggedIn } = useContext(AuthContext);
-    // setbalance(totalAmount)
+
+
+    const {
+        emptyCart,
+    } = useCart();
 
     async function sentPayment(e) {
         e.preventDefault()
         try {
             const user_id = loggedIn._id
-            console.log(loggedIn)
             const newDetails = {
-                postalCode, balance, card_holder_name, exp_date, card_cvc, card_no, user_id
+                postalCode, card_holder_name, exp_date, card_cvc, card_no, user_id, transfer_amount
             }
-            console.log(newDetails)
             const data = (await axios.post("http://localhost:5001/cart-payment", newDetails))
             console.log(data)
             SoloAlert.alert({
@@ -36,7 +39,8 @@ const Payment = (props) => {
                 theme: "dark",
                 useTransparency: true,
                 onOk: function () {
-
+                    emptyCart()
+                    window.location.reload(false);
                 },
             });
 
@@ -89,7 +93,7 @@ const Payment = (props) => {
                                         </div>
                                         <div class="form-group">
                                             <label>Payment amount</label>
-                                            <h2>LKR {totalAmount}</h2>
+                                            <h2>LKR {transfer_amount}</h2>
                                         </div>
                                         <div class="form-group has-success">
                                             <label for="cc-name" class="control-label">Name on Card</label>

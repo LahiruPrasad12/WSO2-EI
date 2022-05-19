@@ -8,8 +8,8 @@ import Payment from '../payment/payment'
 
 const Cart = () => {
     const [qty, setQty] = useState('')
-    const [cartDisplay, setCart] = useState(false)
-    const [paymenttDisplay, setPayment] = useState(true)
+    const [cartDisplay, setCart] = useState(true)
+    const [paymenttDisplay, setPayment] = useState(false)
     const {
         items,
         totalItems,
