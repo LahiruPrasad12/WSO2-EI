@@ -21,10 +21,6 @@ const Itemview = () => {
         }
     }
 
-    const directToCart = () => {
-        window.location = "/cart"
-    }
-
     useEffect(() => {
         getProduct()
     }, [id])
