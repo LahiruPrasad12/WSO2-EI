@@ -76,6 +76,7 @@ exports.saveProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
+    req.body.image = req.file.filename
     const updated_product = await Product.findByIdAndUpdate(req.params.id, req.body)
     return res.status(200).json({
       message: "Product was updated successfully",

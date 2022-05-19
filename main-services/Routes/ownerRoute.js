@@ -12,7 +12,7 @@ router.route('/')
 //This api-resource route for update and delete specific student
 router.route('/:id')
   .get(authController.protect, productController.findProduct)
-  .patch(authController.protect, authController.restrictTo('owner'), productController.updateProduct)
+  .patch(authController.protect, authController.restrictTo('owner'),productController.uploadProductPhoto, productController.updateProduct)
   .delete(authController.protect, authController.restrictTo('owner'), productController.deleteProduct)
 
 
