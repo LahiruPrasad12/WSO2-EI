@@ -67,7 +67,7 @@ const Payment = (props) => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>PAYMENT</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/cart">Cart</Link> / Payment</p>
+                    <p><Link to="/homeclient">Home</Link> / Cart / Payment</p>
                 </div>
                 <div class="container py-3">
                     <div class="row">

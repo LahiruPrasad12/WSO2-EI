@@ -30,7 +30,7 @@ const ClientHome = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>SHOP THE COLLECTION</h1>
-                    <p><Link to="/">Home</Link> / Products</p>
+                    <p>Products</p>
                     <br/>
                     <form action="#" method="get" id="searchForm" class="input-group">
                         <input type="text" class="form-control" name="x" placeholder="Search Products..."/>

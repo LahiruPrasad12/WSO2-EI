@@ -30,7 +30,7 @@ const OwnerHome = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>MY PRODUCT LISTING</h1>
-                    <p><Link to="/">Home</Link> / Add Product</p>
+                    <p>My Products</p>
 
                 </div>
                 <div className='c2'>

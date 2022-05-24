@@ -102,7 +102,7 @@ const Home_Owner = () => {
             <div className='container'>
                 <div className='shopc'>
                     <h1>ADD PRODUCT</h1>
-                    <p><Link to="/">Home</Link> / Add Product</p>
+                    <p><Link to="/homeowner">Home</Link> / Add Product</p>
                 </div>
                 <Formik initialValues={{
                     stock: '',
