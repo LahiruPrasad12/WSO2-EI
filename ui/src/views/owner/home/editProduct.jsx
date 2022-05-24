@@ -132,7 +132,7 @@ const EditProduct = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>EDIT PRODUCT</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/homeowner">My Products</Link> / Edit Product</p>
+                    <p><Link to="/homeowner">Home</Link> / Edit Product</p>
                 </div>
                 <Formik initialValues={{
                     stock: products.stock,

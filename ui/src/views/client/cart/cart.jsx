@@ -28,7 +28,7 @@ const Cart = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>CART</h1>
-                    <p><Link to="/">Home</Link> / Cart</p>
+                    <p><Link to="/homeclient">Home</Link> / Cart</p>
                 </div>
             </div>
             <div class="container">
@@ -61,7 +61,7 @@ const Cart = () => {
                     <div class="container" >
                         <div className='shopc'>
                             <h1>CART</h1>
-                            <p><Link to="/">Home</Link> / <Link to="/cart">Cart</Link></p>
+                            <p><Link to="/homeclient">Home</Link> / Cart</p>
                         </div>
                         <div class="container pb-5 mt-n2 mt-md-n3">
                             <div class="row">
