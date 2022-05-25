@@ -43,15 +43,16 @@ const OwnerHome = () => {
                                             <img src={"http://localhost:5000/img/product/" + item.image} />
                                         </div><div class="contentBx">
                                             <h2>{item.name}</h2>
-                                            <p style={{ color: '#ffffff' }}>Price : {item.price}</p>
+                                            <p style={{ color: '#ffffff', paddingTop: "10px"}}>Price : {item.price}</p>
                                             <div class="size">
-                                                <h3>Size :</h3>
+                                                <h3>Qty :</h3>
                                                 <span>{item.size}</span>
                                             </div>
-                                            <div class="color" style={{ padding: "5px" }}>
+                                            <div class="color" >
                                                 <h3>SKU : {item.sku}</h3>
                                             </div>
-                                            <Link to={`/edit-product/${item._id}`}>Edit</Link>
+                                            <Link style={{marginRight: '4%'}} to={`/itemview/${item._id}`}><i class="fas fa-eye"></i> View</Link>
+                                            <Link style={{marginRight: '4%'}} to={`/edit-product/${item._id}`}><i class="fas fa-cog"></i> Edit</Link>
                                         </div>
                                     </>
                                 </div>

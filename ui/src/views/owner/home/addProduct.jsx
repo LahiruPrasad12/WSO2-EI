@@ -142,7 +142,7 @@ const Home_Owner = () => {
                             <div className="form-outline mb-4">
                                 <label style={{ fontWeight: 'bold', color: '#5D5D5D' }}
                                     className="form-label">*Quantity</label>
-                                <Field type="text" id="size" name="size" className="form-control"
+                                <Field type="number" id="size" name="size" className="form-control"
                                     placeholder="Enter Quantity" />
                                 {errors.size && touched.size ?
                                     <p id={"login-error"} className="text-danger mt-1">{errors.size}</p> : null}
