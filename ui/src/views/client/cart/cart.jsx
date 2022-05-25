@@ -80,7 +80,7 @@ const Cart = () => {
                                                         </div></a>
                                                     <div class="media-body pt-3">
                                                         <Link to={`/itemview/${item._id}`}><h3 class="product-card-title font-weight-semibold border-0 pb-0">{item.name}</h3></Link>
-                                                        <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>{item.size}</div>
+                                                        {/* <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>{item.size}</div> */}
                                                         {/* <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div> */}
                                                         <div class="font-size-sm"><span class="text-muted mr-2">SKU:</span>{item.sku}</div>
                                                         <div class="font-size-lg text-primary pt-2">Rs. {item.price}</div>

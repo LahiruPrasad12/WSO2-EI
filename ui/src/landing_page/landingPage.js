@@ -3,7 +3,7 @@ import './landingPagestyle.css';
 import {Link} from 'react-router-dom';
 import Footer from "../layouts/footer";
 import Header from "../layouts/header";
-import AuthContext from "../context/AuthContext";
+import AuthContext from '../context/AuthContext';
 
 export default function LandingPage(){
 
@@ -37,7 +37,21 @@ export default function LandingPage(){
             <div class="left">
               <div class="big-title">
                 <h1>Welcome To Ceylon Agri</h1>
-                <h1>Start Exploring Now.</h1>
+                {
+                loggedIn === null && (<>
+                 <h1>Start Exploring Now.</h1>
+                </>)
+              }
+                {
+                loggedIn !== null && loggedIn.role === 'buyer' && (<>
+                <h1>Start Shopping Now.</h1>
+                </>)
+              }
+              {
+                loggedIn !== null && loggedIn.role === 'owner' && (<>
+                <h1>Start Selling Now.</h1>
+                </>)
+              }
               </div>
               <p class="text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.

@@ -1,3 +1,4 @@
+import {useContext} from "react";
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Footer from '../../layouts/footer';
@@ -5,12 +6,14 @@ import Header from '../../layouts/header';
 import owner from '../../apis/modules/owner'
 import { useCart } from 'react-use-cart'
 import './itemview.css'
+import AuthContext from '../../context/AuthContext';
+
 
 const Itemview = () => {
     const { id } = useParams();
     const [item, setItem] = useState([]);
     const { addItem, inCart, items } = useCart();
-
+    
     const getProduct = async () => {
         try {
             const arr = await owner.getProduct(id)
@@ -24,7 +27,7 @@ const Itemview = () => {
     useEffect(() => {
         getProduct()
     }, [id])
-
+    const { loggedIn } = useContext(AuthContext);
     return (
         <div>
             <Header />
@@ -33,7 +36,17 @@ const Itemview = () => {
             <div class="container" >
                 <div className='shopc'>
                     <h1>PRODUCT DETAILS</h1>
-                    <p><Link to="/">Home</Link> / <Link to="/homeclient">Products</Link> / {item.sku}</p>
+                    {
+                    loggedIn !== null && loggedIn.role === 'buyer' && (<>
+                    <p><Link to="/homeclient">Products</Link> / {item.sku}</p>
+                    </>)
+                    }
+
+                    {
+                    loggedIn !== null && loggedIn.role === 'owner' && (<>
+                    <p><Link to="/homeowner">Products</Link> / {item.sku}</p>
+                    </>)
+                    }
                 </div>
                 <div class="container">
                     <div class="product-content product-wrap clearfix product-deatil">
@@ -72,7 +85,7 @@ const Itemview = () => {
                                             <a style={{ fontSize: '15px' }}>SKU CODE<span>{item.sku}</span></a>
                                         </li>
                                         <li>
-                                            <a style={{ fontSize: '15px' }}>ITEM SIZE<span>{item.size}</span></a>
+                                            <a style={{ fontSize: '15px' }}>ITEM QTY<span>{item.size}</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,9 +104,22 @@ const Itemview = () => {
                             </div>
                             <hr />
                             <div class="rowbt" key={item.name}>
-                                <Link to="/cart">
-                                    <button class="btn btn-success btn-lg" onClick={() => addItem(item)}>Add to Cart</button>
-                                </Link>
+
+                            {
+                            loggedIn !== null && loggedIn.role === 'buyer' && (<>
+                            <Link to="/cart">
+                                <button class="btn btn-success btn-lg" onClick={() => addItem(item)}><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            </Link>
+                            </>)
+                            }
+
+                            {
+                            loggedIn !== null && loggedIn.role === 'owner' && (<>
+                            <Link to={`/edit-product/${item._id}`}>
+                                <button class="btn btn-success btn-lg"><i class="fas fa-cog"></i> Edit Product</button>
+                            </Link>
+                            </>)
+                            }    
                             </div>
                         </div>
                     </div>
