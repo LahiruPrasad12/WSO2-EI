@@ -16,14 +16,14 @@ import Cart from './views/client/cart/cart';
 
 import Itemview from './views/itemview/itemview';
 import EditProduct from './views/owner/home/editProduct';
-import Payment from './views/client/payment/payment';
+import CartPayment from './views/client/payment/cartPayment';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);
 
     return (
         <Router>
-            <Route exact path="/p"><Payment /></Route>
+            <Route exact path="/p"><CartPayment /></Route>
 
             <Route exact path="/login"><Login /></Route>
             <Route exact path="/register"><ClientRegistration /></Route>
@@ -38,7 +38,7 @@ const Routers = () => {
                     <Route exact path="/itemview/:id"><Itemview /></Route>
                     <Route exact path="/cart"><Cart /></Route>
                     <Route exact path="/edit-product/:id"><EditProduct /></Route>
-                    <Route exact path="/payment"><Payment /></Route>
+                    <Route exact path="/payment"><CartPayment /></Route>
                 </>)
             }
 
