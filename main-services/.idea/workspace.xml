@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880c0b47-17de-440f-9f58-173eeb7c9618" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/validations/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/validations/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653477108106</updated>
       <workItem from="1653477109478" duration="1330000" />
-      <workItem from="1653583788822" duration="3990000" />
+      <workItem from="1653583788822" duration="4685000" />
     </task>
     <servers />
   </component>

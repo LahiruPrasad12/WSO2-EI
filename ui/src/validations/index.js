@@ -29,3 +29,9 @@ export const ProductSchema = Yup.object().shape({
     sku:Yup.string().required('required'),
     // description:Yup.string().required('required'),
 });
+
+export const Mobile = Yup.object().shape({
+    phone:Yup.string().required('required')
+        .min(9, 'please enter valid phone number')
+        .max(10, 'please enter valid phone number')
+});
