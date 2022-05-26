@@ -7,6 +7,8 @@ import { useCart } from 'react-use-cart';
 
 const CartPayment = (props) => {
     const transfer_amount = props.total;
+    const deliverFee = props.deliverFee;
+    const items = props.items;
     const [card_no, setcard_no] = useState('')
     const [card_cvc, setcard_cvc] = useState('')
     const [exp_date, setexp_date] = useState('')
@@ -82,7 +84,7 @@ const CartPayment = (props) => {
                                         </div>
                                         <div class="form-group">
                                             <label>Payment amount</label>
-                                            <h2>LKR {transfer_amount}</h2>
+                                            <h2>LKR {transfer_amount+(deliverFee*1)} <h6>(Delivery fee : {deliverFee})</h6></h2>
                                         </div>
                                         <div class="form-group has-success">
                                             <label for="cc-name" class="control-label">Name on Card</label>

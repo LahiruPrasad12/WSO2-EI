@@ -8,9 +8,30 @@ import CartPayment from '../payment/cartPayment'
 import MobilePayment from '../payment/mobilePayment'
 
 const Cart = () => {
+    const deliveryData = [
+        {
+            id: 1,
+            price: 100,
+            name: 'Prompto',
+            email: 'lahirupr471@gmail.com'
+        },
+        {
+            id: 2,
+            price: 150,
+            name: 'Crypto',
+            email: 'lahirupr471@gmail.com'
+        },
+        {
+            id: 2,
+            price: 200,
+            name: 'Kooria service',
+            email: 'lahirupr471@gmail.com'
+        },
+    ]
     const [qty, setQty] = useState('')
     const [cartDisplay, setCart] = useState(true)
     const [paymenttDisplay, setPayment] = useState(false)
+    const [delivery, setDelivery] = useState('')
     const {
         items,
         totalItems,
@@ -54,6 +75,10 @@ const Cart = () => {
         setCart(false);
         setPayment(true);
     };
+    const selectMethod= (e)=>{
+        e.preventDefault()
+        alert('ok')
+    }
 
     return (
         <div>
@@ -62,56 +87,56 @@ const Cart = () => {
                     <Header/>
                     <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape"/>
 
-                    <div class="container">
+                    <div className="container">
                         <div className='shopc'>
                             <h1>CART</h1>
                             <p><Link to="/homeclient">Home</Link> / Cart</p>
                         </div>
-                        <div class="container pb-5 mt-n2 mt-md-n3">
-                            <div class="row">
-                                <div class="col-xl-9 col-md-8">
-                                    <h2 class="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3">
+                        <div className="container pb-5 mt-n2 mt-md-n3">
+                            <div className="row">
+                                <div className="col-xl-9 col-md-8">
+                                    <h2 className="h6 d-flex flex-wrap justify-content-between align-items-center px-4 py-3">
                                         <span style={{
                                             fontWeight: "bold",
                                             fontSize: "30px",
                                             fontfamily: "Poppins"
                                         }}>Products</span>
-                                        <Link to="/homeclient"><a class="font-size-sm" href="/homeclient">
+                                        <Link to="/homeclient"><a className="font-size-sm" href="/homeclient">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-chevron-left"
+                                                 className="feather feather-chevron-left"
                                                  style={{fontWeight: "bold", fontSize: "30px", fontfamily: "Poppins"}}>
                                                 <polyline points="15 18 9 12 15 6"></polyline>
                                             </svg>
                                             Continue Shopping</a></Link></h2>
                                     {items.map((item, index) => {
                                         return (
-                                            <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom"
+                                            <div className="d-sm-flex justify-content-between my-4 pb-4 border-bottom"
                                                  key={index}>
-                                                <div class="media d-block d-sm-flex text-center text-sm-left">
-                                                    <a class="cart-item-thumb mx-auto mr-sm-4" href="#">
-                                                        <div class="cardc">
-                                                            <div class="imgBxc">
+                                                <div className="media d-block d-sm-flex text-center text-sm-left">
+                                                    <a className="cart-item-thumb mx-auto mr-sm-4" href="#">
+                                                        <div className="cardc">
+                                                            <div className="imgBxc">
                                                                 <Link to={`/itemview/${item._id}`}><img
                                                                     src={"http://localhost:5000/img/product/" + item.image}/></Link>
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    <div class="media-body pt-3">
+                                                    <div className="media-body pt-3">
                                                         <Link to={`/itemview/${item._id}`}><h3
-                                                            class="product-card-title font-weight-semibold border-0 pb-0">{item.name}</h3>
+                                                            className="product-card-title font-weight-semibold border-0 pb-0">{item.name}</h3>
                                                         </Link>
-                                                        <div class="font-size-sm"><span
-                                                            class="text-muted mr-2">SKU:</span>{item.sku}</div>
+                                                        <div className="font-size-sm"><span
+                                                            className="text-muted mr-2">SKU:</span>{item.sku}</div>
                                                         <div
-                                                            class="font-size-lg text-primary pt-2">Rs. {item.price}</div>
+                                                            className="font-size-lg text-primary pt-2">Rs. {item.price}</div>
                                                     </div>
                                                 </div>
 
 
                                                 <div
-                                                    class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
+                                                    className="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
                                                     style={{width: "auto"}}>
                                                     <div className='plusm'>
                                                         <input className='crt' type="button"
@@ -125,13 +150,13 @@ const Cart = () => {
                                                                value="+"/>
                                                     </div>
                                                     <br/>
-                                                    <button class="btn btn-outline-danger btn-sm btn-block mb-2"
+                                                    <button className="btn btn-outline-danger btn-sm btn-block mb-2"
                                                             type="button" onClick={() => removeItem(item.id)}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                              viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                              stroke-width="2" stroke-linecap="round"
                                                              stroke-linejoin="round"
-                                                             class="feather feather-trash-2 mr-1">
+                                                             className="feather feather-trash-2 mr-1">
                                                             <polyline points="3 6 5 6 21 6"></polyline>
                                                             <path
                                                                 d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -147,30 +172,41 @@ const Cart = () => {
                                         )
                                     })}
                                 </div>
-                                <div class="col-xl-3 col-md-4 pt-3 pt-md-0">
-                                    <h2 class="h6 px-4 py-3 bg-info text-center" style={{color: 'white'}}>Subtotal</h2>
-                                    <div class="h3 font-weight-semibold text-center py-3">Rs. {cartTotal}</div>
-                                    <h3 class="h6 pt-1 font-weight-semibold" style={{"textAlign": "center"}}>Total
+                                <div className="col-xl-3 col-md-4 pt-3 pt-md-0">
+                                    <h2 className="h6 px-4 py-3 bg-info text-center"
+                                        style={{color: 'white'}}>Subtotal</h2>
+                                    <div className="h3 font-weight-semibold text-center py-3">Rs. {cartTotal}</div>
+                                    <h3 className="h6 pt-1 font-weight-semibold" style={{"textAlign": "center"}}>Total
                                         Items: {totalItems}</h3>
                                     <hr/>
                                     <center>
-                                        <h3 style={{paddingBottom: '15px'}} class="h6 pt-4 font-weight-semibold"><span
-                                            class="badge badge-success mr-2">S</span>Shipping Service</h3>
-                                        <div class="input-group-btn search-panel">
+                                        <h3 style={{paddingBottom: '15px'}}
+                                            className="h6 pt-4 font-weight-semibold"><span
+                                            className="badge badge-success mr-2">S</span>Shipping Service</h3>
+                                        <div className="input-group-btn search-panel">
                                             <select name="search_param" id="search_param"
                                                     style={{borderRadius: '0px', width: '200px'}}
-                                                    class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                                                    className="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                                                    onChange={(e) => {
+                                                        setDelivery(e.target.value)
+                                                    }}>
                                                 <option value="all">-Shipping Service-</option>
-                                                <option value="username">Pronto</option>
-                                                <option value="email">Domex</option>
-                                                <option value="studentcode">DHL</option>
+                                                {/* eslint-disable-next-line array-callback-return */}
+                                                {deliveryData.map((e) => {
+                                                    return <option value={e.price}>
+                                                        {e.name}
+                                                    </option>
+                                                })}
                                             </select>
+                                        </div>
+                                        <div className="mt-2" hidden={delivery.length === 0}>
+                                            <h6>Delivery fee : RS.{delivery}</h6>
                                         </div>
                                     </center>
                                     <br/>
                                     <div data-bs-toggle="modal"
                                          data-bs-target="#cartPayment">
-                                        <a class="btn btn-primary btn-block" href="#">
+                                        <a className="btn btn-primary btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                                  stroke-linecap="round" stroke-linejoin="round"
@@ -184,9 +220,10 @@ const Cart = () => {
                                     <br/>
                                     <div data-bs-toggle="modal"
                                          data-bs-target="#mobilePayment">
-                                        <a class="btn btn-success btn-block" href="#">
+                                        <a className="btn btn-success btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 fill="currentColor" class="bi bi-phone-vibrate" viewBox="0 0 16 16">
+                                                 fill="currentColor" className="bi bi-phone-vibrate"
+                                                 viewBox="0 0 16 16">
                                                 <path
                                                     d="M10 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4zM6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
                                                 <path
@@ -216,7 +253,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <CartPayment total={cartTotal}/>
+                            <CartPayment total={cartTotal} deliverFee={delivery} items={items}/>
                         </div>
                     </div>
                 </div>
@@ -233,7 +270,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                           <MobilePayment total={cartTotal}/>
+                            <MobilePayment total={cartTotal}/>
                         </div>
                     </div>
                 </div>
