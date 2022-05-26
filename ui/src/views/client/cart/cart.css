@@ -1,15 +1,18 @@
-body{margin-top:20px;}
+body {
+    margin-top: 20px;
+}
+
 .cart-item-thumb {
     display: block;
     width: 10rem
 }
 
-.cart-item-thumb>img {
+.cart-item-thumb > img {
     display: block;
     width: 100%
 }
 
-.product-card-title>a {
+.product-card-title > a {
     color: #222;
 }
 
@@ -39,20 +42,21 @@ body{margin-top:20px;}
     font-size: 1rem;
     font-weight: bold;
 }
+
 .font-weight-semibold {
     font-weight: 600 !important;
 }
 
-.container .cardc{
+.container .cardc {
     position: relative;
     width: 160px;
     height: 160px;
     background: #538666;
     border-radius: 20px;
     overflow: hidden;
-  }
-  
-  .container .cardc:before{
+}
+
+.container .cardc:before {
     content: '';
     position: absolute;
     top: 0;
@@ -62,13 +66,13 @@ body{margin-top:20px;}
     background: #4cc97c;
     clip-path: circle(80px at 80% 20%);
     transition: 0.5s ease-in-out;
-  }
-  
-  .container .cardc:hover:before{
+}
+
+.container .cardc:hover:before {
     clip-path: circle(150px at 80% -20%);
-  }
-  
-  .container .cardc:after{
+}
+
+.container .cardc:after {
     content: 'CA';
     position: absolute;
     top: 30%;
@@ -76,10 +80,10 @@ body{margin-top:20px;}
     font-size: 12em;
     font-weight: 800;
     font-style: italic;
-    color: rgba(255,255,25,0.05)
-  }
-  
-  .container .cardc .imgBxc{
+    color: rgba(255, 255, 25, 0.05)
+}
+
+.container .cardc .imgBxc {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -87,23 +91,23 @@ body{margin-top:20px;}
     width: 160px;
     height: 150px;
     transition: 0.5s;
-  }
-  
-  .container .cardc:hover .imgBxc{
+}
+
+.container .cardc:hover .imgBxc {
     top: 0%;
     transform: translateY(0%) rotate(-15deg);
-      
-  }
-  
-  .container .cardc .imgBxc img{
+
+}
+
+.container .cardc .imgBxc img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 150px;
-  }
-  
-  .container .cardc .contentBx{
+}
+
+.container .cardc .contentBx {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -111,53 +115,54 @@ body{margin-top:20px;}
     text-align: center;
     transition: 1s;
     z-index: 10;
-  }
-  
-  .container .cardc:hover .contentBx{
+}
+
+.container .cardc:hover .contentBx {
     height: 210px;
-  }
-  
-  .container .cardc .contentBx h2{
+}
+
+.container .cardc .contentBx h2 {
     position: relative;
     font-weight: 600;
     letter-spacing: 1px;
     color: #fff;
     margin: 0;
-  }
-  
-  .container .cardc .contentBx .size, .container .cardc .contentBx .color {
+}
+
+.container .cardc .contentBx .size, .container .cardc .contentBx .color {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 8px 20px;
-    transition: 0.5s;opacity: 0;
+    transition: 0.5s;
+    opacity: 0;
     visibility: hidden;
     padding-top: 0;
     padding-bottom: 0;
-  }
-  
-  .container .cardc:hover .contentBx .size{
+}
+
+.container .cardc:hover .contentBx .size {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.5s;
-  }
-  
-  .container .cardc:hover .contentBx .color{
+}
+
+.container .cardc:hover .contentBx .color {
     opacity: 1;
     visibility: visible;
     transition-delay: 0.6s;
-  }
-  
-  .container .cardc .contentBx .size h3, .container .cardc .contentBx .color h3{
+}
+
+.container .cardc .contentBx .size h3, .container .cardc .contentBx .color h3 {
     color: #fff;
     font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-right: 10px;
-  }
-  
-  .container .cardc .contentBx .size span{
+}
+
+.container .cardc .contentBx .size span {
     width: 26px;
     height: 26px;
     text-align: center;
@@ -172,17 +177,17 @@ body{margin-top:20px;}
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 10px;
-  }
-  
-  .container .cardc .contentBx .size span:hover{
+}
+
+.container .cardc .contentBx .size span:hover {
     background: #9bdc28;
-  }
-  
-  .container .cardc .contentBx .color span{
+}
+
+.container .cardc .contentBx .color span {
     color: #ffffff;
-  }
-  
-  .container .cardc .contentBx a{
+}
+
+.container .cardc .contentBx a {
     display: inline-block;
     padding: 10px 20px;
     background: #fff;
@@ -195,31 +200,31 @@ body{margin-top:20px;}
     transform: translateY(50px);
     transition: 0.5s;
     margin-top: 0;
-  }
-  
-  .container .cardc:hover .contentBx a{
+}
+
+.container .cardc:hover .contentBx a {
     opacity: 1;
     transform: translateY(0px);
     transition-delay: 0.75s;
-    
-  }
 
-.crti{
-  width: 25%;
-  margin-left: 35%;
 }
 
-		.crt{
-			height:34px;
-      width: 70px;
-      text-align: center;
-      font-size: 18px;
-			border:1px solid #ddd;
-			border-radius:4px;
-      display: inline-block;
-      vertical-align: middle;
-    }
+.crti {
+    width: 25%;
+    margin-left: 35%;
+}
 
-    .plusm{
-      padding-top: 20px;
-    }
+.crt {
+    height: 34px;
+    width: 70px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.plusm {
+    padding-top: 20px;
+}

@@ -16,7 +16,8 @@
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
     "mongoose": "^5.13.2",
-    "qrcode": "^1.5.0"
+    "qrcode": "^1.5.0",
+    "shoutout-sdk": "^3.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

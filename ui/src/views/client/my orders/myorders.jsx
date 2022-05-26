@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import '../cart/cart.css'
+import buyeAPI from '../../../apis/modules/buyer'
 
-const Myorders = () => {
+const MyOrders = () => {
+    const [myOrders, setMyOrders] = useState([]);
+
+    useEffect(()=>{
+       const getMyOrders = async ()=>{
+           let result = await buyeAPI.getMyeOrder()
+           console.log(result.data.product)
+           setMyOrders(result.data.product)
+       }
+        getMyOrders()
+    },[])
 
     return (
         <div>
@@ -30,35 +41,62 @@ const Myorders = () => {
                                             </button>
                                         </form>
                                             <br/><br/>
-                                            <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
-                                                <div class="media d-block d-sm-flex text-center text-sm-left">
-                                                    <a class="cart-item-thumb mx-auto mr-sm-4" href="#">
-                                                        <div class="cardc">
-                                                            <div class="imgBxc">
-                                                            <Link ><img src="https://i.postimg.cc/jS1Z4tDd/189-1894807-old-milk-bottle-png-transparent-png-copy.png" /></Link>   
+                                    {
+                                        myOrders.map((element)=>{
+                                            return element.items.map((subElement)=>{
+                                                return <div
+                                                    className="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
+                                                    <div className="media d-block d-sm-flex text-center text-sm-left">
+                                                        <a className="cart-item-thumb mx-auto mr-sm-4" href="#">
+                                                            <div className="cardc">
+                                                                <div className="imgBxc">
+                                                                    <Link><img
+                                                                        src={"http://localhost:5000/img/product/" + subElement.image}/></Link>
+                                                                </div>
                                                             </div>
-                                                        </div></a>
-                                                    <div class="media-body pt-3">
-                                                        <Link ><h3 class="product-card-title font-weight-semibold border-0 pb-0">Milk Bottle</h3></Link>
-                                                        <div class="font-size-sm"><span class="text-muted mr-2">Qty:</span>3</div>
-                                                        {/* <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div> */}
-                                                        <div class="font-size-sm"><span class="text-muted mr-2">SKU:</span>CA8001</div>
-                                                        <div class="font-size-lg text-primary pt-2">Rs. 1200</div>
+                                                        </a>
+                                                        <div className="media-body pt-3">
+                                                            <Link><h3
+                                                                className="product-card-title font-weight-semibold border-0 pb-0">{subElement.name}</h3></Link>
+                                                            <div className="font-size-sm"><span
+                                                                className="text-muted mr-2">Qty:</span>{subElement.quantity}
+                                                            </div>
+                                                            {/* <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div> */}
+                                                            <div className="font-size-sm"><span
+                                                                className="text-muted mr-2">SKU:</span>{subElement.sku}
+                                                            </div>
+                                                            <div className="font-size-lg text-primary pt-2">Rs. {subElement.price}</div>
+                                                            <div className="font-size-lg text-primary pt-2">Total Rs. {element.totalAmount}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        className="pt-2 pt-sm-0 mt-3 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
+                                                        style={{width: "auto"}}>
+                                                        <h3 style={{textAlign: 'center'}}
+                                                            className="product-card-title font-weight-bold border-0 pb-0">Shipping Adress</h3>
+                                                        <p style={{textAlign: 'center'}}>{element.shippingAddress.address}</p>
+                                                        <p style={{textAlign: 'center'}}>{element.shippingAddress.city} ({element.shippingAddress.postal})</p>
+                                                        <p style={{textAlign: 'center'}}>{element.shippingAddress.country}</p>
+                                                    </div>
+                                                    <div
+                                                        className="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left"
+                                                        style={{width: "auto"}}>
+                                                        <h3 style={{textAlign: 'center'}}
+                                                            className="product-card-title font-weight-bold border-0 pb-0">Shipping
+                                                            Service</h3>
+                                                        <button className="btn btn-danger btn-sm btn-block mb-2">{element.shippingMethod}
+                                                        </button>
+                                                        <h3 style={{textAlign: 'center', paddingTop: '10px'}}
+                                                            className="product-card-title font-weight-bold border-0 pb-0">Shipping
+                                                            Status</h3>
+                                                        <button className="btn btn-success btn-sm btn-block mb-2">{element.shippingFee}
+                                                        </button>
                                                     </div>
                                                 </div>
-
-                                                <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style={{ width: "auto" }}>
-                                                    <br /><br />
-                                                        <h3 style={{textAlign: 'center'}} class="product-card-title font-weight-bold border-0 pb-0">Shipping Adress</h3>
-                                                        <p style={{textAlign: 'center'}}>Kavindu Lakshan, Kandy Road, Malabe</p> 
-                                                </div>
-                                                <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style={{ width: "auto" }}>
-                                                        <h3 style={{textAlign: 'center'}} class="product-card-title font-weight-bold border-0 pb-0">Shipping Service</h3>
-                                                        <button class="btn btn-danger btn-sm btn-block mb-2">Pronto</button> 
-                                                        <h3 style={{textAlign: 'center', paddingTop: '10px'}} class="product-card-title font-weight-bold border-0 pb-0">Shipping Status</h3>
-                                                        <button class="btn btn-success btn-sm btn-block mb-2">SHIPPED</button>   
-                                                </div>
-                                            </div>
+                                            })
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -71,4 +109,4 @@ const Myorders = () => {
     );
 };
 
-export default Myorders;
+export default MyOrders;

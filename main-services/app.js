@@ -13,6 +13,7 @@ const userRoute = require('./Routes/userRoute');
 const ownerRoute = require('./Routes/ownerRoute');
 const cartRoutes = require('./Routes/cartRoutes');
 const bankCartRoute = require('./Routes/bankCartRoute');
+const orderRoute = require('./Routes/orderRoutes');
 const cors = require("cors");
 const path = require("path");
 
@@ -77,6 +78,7 @@ app.use('/api/user', userRoute);
 app.use('/api/owner', ownerRoute);
 app.use('/api/carts', cartRoutes);
 app.use('/api/bank-carts', bankCartRoute);
+app.use('/api/orders', orderRoute);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
