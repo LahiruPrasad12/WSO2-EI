@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../../layouts/footer';
 import Header from '../../../layouts/header';
 import '../cart/cart.css'
 
 const Myorders = () => {
+
+    useEffect(()=>{
+
+    },[])
 
     return (
         <div>

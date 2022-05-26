@@ -23,3 +23,16 @@ exports.saveOrder = async (req, res) => {
         return res.status(400).json({ message: error.message});
     }
 };
+
+exports.getMyOrder = async (req, res) => {
+    try {
+        let myOrder = await Order.find({user_id:req.user._id})
+        return res.status(200).json({
+            product: myOrder,
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ message: error.message});
+    }
+};

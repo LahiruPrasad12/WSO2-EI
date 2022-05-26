@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import './payment.css';
 import SoloAlert from 'soloalert'
 import axios from 'axios';
-import Axios from '../../../apis/axios';
+import buyerAPI from '../../../apis/modules/buyer';
 import AuthContext from '../../../context/AuthContext';
 import { useCart } from 'react-use-cart';
 
@@ -23,10 +23,11 @@ const MobilePayment = (props) => {
         try {
             const user_id = loggedIn._id
             let email = deliveryData.email
+            let shippingMethod = deliveryData.name
             const newDetails = {
-                user_id,totalAmount, mobile, items, shippingAddress, email
+                user_id,totalAmount, mobile, items, shippingAddress, email,shippingMethod
             }
-            const orderData = (await Axios.post("http://localhost:5000/api/orders", newDetails))
+            const orderData = (await buyerAPI.placeOrder("http://localhost:5000/api/orders", newDetails))
             // const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
             // console.log(data)
             SoloAlert.alert({

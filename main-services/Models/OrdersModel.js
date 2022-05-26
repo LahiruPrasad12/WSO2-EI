@@ -18,7 +18,7 @@ const orderSchema = new Schema(
         },
         totalAmount:{
             type: String
-        }
+        },
     },
 );
 const Orders = mongoose.model('Orders', orderSchema);
