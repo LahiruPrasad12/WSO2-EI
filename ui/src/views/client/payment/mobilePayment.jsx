@@ -13,6 +13,7 @@ const MobilePayment = (props) => {
     const items = props.items;
     const shippingAddress = props.shippingDetails;
     const [mobile, setMobileNumber] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const { loggedIn } = useContext(AuthContext);
 
@@ -21,6 +22,7 @@ const MobilePayment = (props) => {
         e.preventDefault()
 
         try {
+            setIsLoading(true)
             const user_id = loggedIn._id
             let email = deliveryData.email
             let shippingMethod = deliveryData.name
@@ -37,7 +39,7 @@ const MobilePayment = (props) => {
                 theme: "dark",
                 useTransparency: true,
                 onOk: function () {
-                    window.location.reload(false);
+                    window.location = '/myorders'
                 },
             });
 
@@ -55,6 +57,7 @@ const MobilePayment = (props) => {
                 },
             });
         }
+        setIsLoading(false)
 
     }
     return (
@@ -82,9 +85,9 @@ const MobilePayment = (props) => {
                                             <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                         </div>
                                         <div>
-                                            <button onClick={(e) => { sentPayment(e) }} id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">
+                                            <button disabled={isLoading} onClick={(e) => { sentPayment(e) }} id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">
                                                 <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                                <span id="payment-button-amount">Pay Now</span>
+                                                <span id="payment-button-amount">{isLoading?'placing order...':'Pay now'}</span>
                                             </button>
                                         </div>
                                     </form>
