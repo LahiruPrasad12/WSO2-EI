@@ -8,8 +8,8 @@ import { useCart } from 'react-use-cart';
 
 const MobilePayment = (props) => {
     const transfer_amount = props.total;
-    const deliveryFee = props.deliverFee;
-    let totalAmount = transfer_amount+(deliveryFee*1)
+    const deliveryData = props.deliverFee;
+    let totalAmount = transfer_amount+(deliveryData.price*1)
     const items = props.items;
     const shippingAddress = props.shippingDetails;
     const [mobile, setMobileNumber] = useState('')
@@ -19,10 +19,12 @@ const MobilePayment = (props) => {
 
     async function sentPayment(e) {
         e.preventDefault()
+
         try {
             const user_id = loggedIn._id
+            let email = deliveryData.email
             const newDetails = {
-                user_id,totalAmount, mobile, items, shippingAddress
+                user_id,totalAmount, mobile, items, shippingAddress, email
             }
             const orderData = (await Axios.post("http://localhost:5000/api/orders", newDetails))
             // const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
@@ -70,7 +72,7 @@ const MobilePayment = (props) => {
                                         <div class="form-group">
                                             <label>Payment amount</label>
                                             <h2>LKR {totalAmount}</h2>
-                                            <h6>Deliver fee : RS.{deliveryFee}</h6>
+                                            <h6>Deliver fee : RS.{deliveryData.price}</h6>
                                         </div>
                                         <div class="form-group has-success">
                                             <label for="cc-name" class="control-label">Enter mobile number</label>

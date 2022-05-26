@@ -39,15 +39,9 @@ const Cart = () => {
     const [deliveryName, setDeliveryName] = useState('')
     const [deliveryEmail, setDeliveryEmail] = useState('')
     const [deliveryStatus, setDeliveryStatus] = useState(true)
-    const [shippingDetails, setShippingDetails] = useState(undefined)
+    const [shippingDetails, setShippingDetails] = useState({ address: "", country: "",city:"",postal:"" });
 
-    let shippingData;
-    let shipping = {
-        address:'',
-        city:'',
-        country:'',
-        postal:''
-    };
+    const [deliverDetails, setDeliverDetails] = useState({ price: "", name: "", email:"" });
     const {
         items,
         totalItems,
@@ -59,31 +53,39 @@ const Cart = () => {
 
     const setAddressData = (e)=>{
         e.preventDefault()
-        shippingData = {
-            country,city,address,postal
-        }
+
         setDeliveryStatus(false)
-        setShippingDetails(shippingData)
-        console.log(shippingData)
+
     }
     const clearData = (e)=>{
         e.preventDefault()
-        shippingData = {
-            country,city,address,postal
-        }
+
         setDeliveryStatus(true)
-        setShippingDetails(shippingData)
-        console.log(shippingData)
+
     }
 
     const setData = (e)=>{
         let Id = e.target.value;
         const data = deliveryData.find( (e) => e.id == Id );
         setDeliveryPrice(data.price)
-        console.log(Id)
-        console.log(deliveryData)
-        console.log(data)
+
+        setDeliverDetails(prevState => ({
+            ...prevState,
+            price: data.price,
+            name: data.name,
+            email: data.email
+        }));
+
+        console.log(deliverDetails)
     }
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setShippingDetails(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
 
     if (isEmpty) return (
         <>
@@ -223,7 +225,7 @@ const Cart = () => {
                                             className="h6 pt-4 font-weight-semibold"><span
                                             className="badge badge-success mr-2">S</span>Shipping Service</h3>
                                         <div className="input-group-btn search-panel">
-                                            <select  name="search_param" id="search_param"
+                                            <select disabled={deliveryStatus} name="search_param" id="search_param"
                                                     style={{borderRadius: '0px', width: '200px'}}
                                                     className="btn btn-light dropdown-toggle" data-toggle="dropdown"
                                                     onChange={(e)=>{setData(e)}}>
@@ -307,7 +309,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <MobilePayment total={cartTotal} shippingDetails={shippingData} deliverFee={delivery} items={items}/>
+                            <MobilePayment total={cartTotal} shippingDetails={shippingDetails} deliverFee={deliverDetails} items={items}/>
                         </div>
                     </div>
                 </div>
@@ -328,37 +330,29 @@ const Cart = () => {
                                 <div className="col-md-12">
                                     <div className="mb-3">
                                         <label htmlFor="recipient-name" className="col-form-label">Address</label>
-                                        <input type="text" placeholder="Enter your address" className="form-control" id="recipient-name"
-                                               onChange={(e) => {
-                                                   setAddress(e.target.value)
-                                               }} required/>
+                                        <input type="text" name="address" placeholder="Enter your address" className="form-control" id="recipient-name"
+                                               onChange={handleChange} required/>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
                                     <div className="mb-3">
                                         <label htmlFor="recipient-name" className="col-form-label">City</label>
-                                        <input type="text" placeholder="Enter city" className="form-control" id="recipient-name"
-                                               onChange={(e) => {
-                                                   setCity(e.target.value)
-                                               }} required/>
+                                        <input type="text" name="city" placeholder="Enter city" className="form-control" id="recipient-name"
+                                               onChange={handleChange} required/>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
                                     <div className="mb-3">
                                         <label htmlFor="recipient-name" className="col-form-label">County</label>
-                                        <input type="text" placeholder="Enter country" className="form-control" id="recipient-name"
-                                               onChange={(e) => {
-                                                   setCountry(e.target.value)
-                                               }} required/>
+                                        <input type="text" name="country" placeholder="Enter country" className="form-control" id="recipient-name"
+                                               onChange={handleChange} required/>
                                     </div>
                                 </div>
                                 <div className="col-md-4">
                                     <div className="mb-3">
                                         <label htmlFor="recipient-name" className="col-form-label">Postal code</label>
-                                        <input type="number" placeholder="Enter postal code" className="form-control" id="recipient-name"
-                                               onChange={(e) => {
-                                                   setPostal(e.target.value)
-                                               }} required/>
+                                        <input type="number" name="postal" placeholder="Enter postal code" className="form-control" id="recipient-name"
+                                               onChange={handleChange} required/>
                                     </div>
                                 </div>
 
@@ -370,7 +364,8 @@ const Cart = () => {
                                     onClick={(e)=>{clearData(e)}}>Close</button>
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
                                     onClick={(e)=>{setAddressData(e)}}
-                            disabled={address.length===0 || city.length===0 || postal.length===0 || country.length===0}
+                            disabled={shippingDetails.address.length===0 || shippingDetails.city.length===0 ||
+                                shippingDetails.postal.length===0|| shippingDetails.country.length===0 }
                             >Send message</button>
                         </div>
                     </div>

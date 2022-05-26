@@ -13,8 +13,8 @@ const orderSchema = new Schema(
         shippingMethod:{
             type: String,
         },
-        address:{
-            type: String,
+        shippingAddress:{
+            type: Object,
         },
         totalAmount:{
             type: String
