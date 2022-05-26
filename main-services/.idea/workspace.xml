@@ -2,39 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880c0b47-17de-440f-9f58-173eeb7c9618" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../cart-payment-service/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ui/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/REST API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/REST API.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-payment-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-payment-service/.idea/cart-payment.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-payment-service/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-payment-service/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-payment-service/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-payment-service/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-payment-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-payment-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mobile-payment-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../mobile-payment-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/.idea/ui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.idea/ui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/Router.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/orderController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Routes/orderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/payment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/cartPayment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,6 +39,7 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\lahir\\Desktop\\REST API\\main-services\\node_modules\\prettier",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -68,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653477108106</updated>
       <workItem from="1653477109478" duration="1330000" />
+      <workItem from="1653583788822" duration="534000" />
     </task>
     <servers />
   </component>
