@@ -28,16 +28,10 @@ const Cart = () => {
             email: 'lahirupr471@gmail.com'
         },
     ]
-    const [qty, setQty] = useState('')
-    const [address, setAddress] = useState('')
-    const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
-    const [postal, setPostal] = useState('')
+
     const [cartDisplay, setCart] = useState(true)
-    const [paymenttDisplay, setPayment] = useState(false)
+
     const [deliveryPrice, setDeliveryPrice] = useState('')
-    const [deliveryName, setDeliveryName] = useState('')
-    const [deliveryEmail, setDeliveryEmail] = useState('')
     const [deliveryStatus, setDeliveryStatus] = useState(true)
     const [shippingDetails, setShippingDetails] = useState({ address: "", country: "",city:"",postal:"" });
 

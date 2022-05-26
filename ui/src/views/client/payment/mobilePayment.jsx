@@ -14,7 +14,6 @@ const MobilePayment = (props) => {
     let totalAmount = transfer_amount + (deliveryData.price * 1)
     const items = props.items;
     const shippingAddress = props.shippingDetails;
-    const [phone, setMobileNumber] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     const {loggedIn} = useContext(AuthContext);

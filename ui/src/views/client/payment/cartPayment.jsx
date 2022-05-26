@@ -16,11 +16,6 @@ const CartPayment = (props) => {
     const shippingAddress = props.shippingDetails;
     const [isLoading, setIsLoading] = useState(false)
 
-    const [card_no, setcard_no] = useState('')
-    const [card_cvc, setcard_cvc] = useState('')
-    const [exp_date, setexp_date] = useState('')
-    const [card_holder_name, setcard_holder_name] = useState('')
-    const [postalCode, setpostalCode] = useState(0)
     const {loggedIn} = useContext(AuthContext);
 
 
@@ -55,7 +50,7 @@ const CartPayment = (props) => {
                 useTransparency: true,
                 onOk: function () {
                     emptyCart()
-                    window.location.reload(false);
+                    window.location = '/myorders'
                 },
             });
 
@@ -176,7 +171,7 @@ const CartPayment = (props) => {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <button id="payment-button" type="submit"
+                                                    <button disabled={isLoading} id="payment-button" type="submit"
                                                             class="btn btn-lg btn-success btn-block">
                                                         <i class="fa fa-lock fa-lg"></i>&nbsp;
                                                         <span id="payment-button-amount">

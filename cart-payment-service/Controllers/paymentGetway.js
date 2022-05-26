@@ -10,13 +10,13 @@ exports.sendEmail = async (req, res, next) => {
 
         await sendEmail({
             email: req.body.client_email,
-            subject: 'Your payment',
+            subject: 'Congrats!!',
             clientMessage
         });
 
         res.status(200).json({
             status: 'success',
-            message: 'Email has been sent'
+            message: 'Your payment was successful'
         });
     } catch (err) {
 
