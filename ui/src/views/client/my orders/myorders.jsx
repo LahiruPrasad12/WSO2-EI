@@ -66,7 +66,7 @@ const MyOrders = () => {
                                                                 className="text-muted mr-2">SKU:</span>{subElement.sku}
                                                             </div>
                                                             <div className="font-size-lg text-primary pt-2">Rs. {subElement.price}</div>
-                                                            <div className="font-size-lg text-primary pt-2">Total Rs. {subElement.itemTotal}</div>
+                                                            <div className="font-size-lg text-primary pt-2">Total Rs. {element.totalAmount}</div>
                                                         </div>
                                                     </div>
 
@@ -90,7 +90,7 @@ const MyOrders = () => {
                                                         <h3 style={{textAlign: 'center', paddingTop: '10px'}}
                                                             className="product-card-title font-weight-bold border-0 pb-0">Shipping
                                                             Status</h3>
-                                                        <button className="btn btn-success btn-sm btn-block mb-2">SHIPPED
+                                                        <button className="btn btn-success btn-sm btn-block mb-2">{element.shippingFee}
                                                         </button>
                                                     </div>
                                                 </div>

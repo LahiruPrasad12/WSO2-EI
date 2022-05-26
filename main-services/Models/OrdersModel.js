@@ -19,6 +19,9 @@ const orderSchema = new Schema(
         totalAmount:{
             type: String
         },
+        shippingFee:{
+            type: String
+        }
     },
 );
 const Orders = mongoose.model('Orders', orderSchema);

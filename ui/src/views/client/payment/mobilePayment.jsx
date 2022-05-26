@@ -12,7 +12,7 @@ const MobilePayment = (props) => {
     let totalAmount = transfer_amount+(deliveryData.price*1)
     const items = props.items;
     const shippingAddress = props.shippingDetails;
-    const [mobile, setMobileNumber] = useState('')
+    const [phone, setMobileNumber] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     const { loggedIn } = useContext(AuthContext);
@@ -29,11 +29,15 @@ const MobilePayment = (props) => {
             const user_id = loggedIn._id
             let email = deliveryData.email
             let shippingMethod = deliveryData.name
+            let shippingFee = deliveryData.price
             const newDetails = {
-                user_id,totalAmount, mobile, items, shippingAddress, email,shippingMethod
+                user_id,totalAmount, items, shippingAddress, email,shippingMethod,shippingFee
             }
             const orderData = (await buyerAPI.placeOrder(newDetails))
-            // const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
+           const mobileData = {
+               phone
+            }
+            const data = (await axios.post("http://localhost:5002/mobile-payment", mobileData))
             // console.log(data)
             SoloAlert.alert({
                 title: "Oops!",

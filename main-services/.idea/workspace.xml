@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880c0b47-17de-440f-9f58-173eeb7c9618" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/my orders/myorders.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/my orders/myorders.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
