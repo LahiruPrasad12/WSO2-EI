@@ -1,14 +1,3 @@
-const QRCode = require('qrcode');
-const Vonage = require('@vonage/server-sdk');
-const vonage = new Vonage({
-    apiKey: 'db565896',
-    apiSecret: 'joR5tMif5GyBOtMX',
-});
-
-//@desc  create sms
-//@route POST /api/v1/sms
-//@access Private
-
 const ShoutoutClient = require('shoutout-sdk');
 
 const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjOTdjMDNmMC1kY2Q3LTExZWMtOTU2Yi0xNzVlYzExNGRjNGQiLCJzdWIiOiJTSE9VVE9VVF9BUElfVVNFUiIsImlhdCI6MTY1MzU1Nzk4OSwiZXhwIjoxOTY5MTc3MTg5LCJzY29wZXMiOnsiYWN0aXZpdGllcyI6WyJyZWFkIiwid3JpdGUiXSwibWVzc2FnZXMiOlsicmVhZCIsIndyaXRlIl0sImNvbnRhY3RzIjpbInJlYWQiLCJ3cml0ZSJdfSwic29fdXNlcl9pZCI6IjY4MzA5Iiwic29fdXNlcl9yb2xlIjoidXNlciIsInNvX3Byb2ZpbGUiOiJhbGwiLCJzb191c2VyX25hbWUiOiIiLCJzb19hcGlrZXkiOiJub25lIn0.mD2odsYXU8mfIN2J1wOjzcJ9w6y5Ps0bvNlNePsBPKI';
