@@ -3,11 +3,7 @@ const mongoose = require("mongoose");
 
 const orderSchema = new Schema(
     {
-        owner_id: {
-            type: String,
-            required: [true, "Please enter a valid product name"],
-        },
-        item: {
+        items: {
             type: Object,
         },
         user_id: {
@@ -19,6 +15,9 @@ const orderSchema = new Schema(
         },
         address:{
             type: String,
+        },
+        totalAmount:{
+            type: String
         }
     },
 );

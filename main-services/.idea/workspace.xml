@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="880c0b47-17de-440f-9f58-173eeb7c9618" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/orderController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Routes/orderRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/orderController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653477108106</updated>
       <workItem from="1653477109478" duration="1330000" />
-      <workItem from="1653583788822" duration="534000" />
+      <workItem from="1653583788822" duration="1204000" />
     </task>
     <servers />
   </component>

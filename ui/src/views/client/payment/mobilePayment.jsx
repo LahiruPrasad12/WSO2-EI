@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import './payment.css';
 import SoloAlert from 'soloalert'
 import axios from 'axios';
+import Axios from '../../../apis/axios';
 import AuthContext from '../../../context/AuthContext';
 import { useCart } from 'react-use-cart';
 
@@ -16,10 +17,6 @@ const MobilePayment = (props) => {
     const { loggedIn } = useContext(AuthContext);
 
 
-    const {
-        emptyCart,
-    } = useCart();
-
     async function sentPayment(e) {
         e.preventDefault()
         try {
@@ -27,8 +24,9 @@ const MobilePayment = (props) => {
             const newDetails = {
                 user_id,totalAmount, mobile, items, shippingAddress
             }
-            const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
-            console.log(data)
+            const orderData = (await Axios.post("http://localhost:5000/api/orders", newDetails))
+            // const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
+            // console.log(data)
             SoloAlert.alert({
                 title: "Oops!",
                 body: "you purchase was success",
@@ -36,7 +34,6 @@ const MobilePayment = (props) => {
                 theme: "dark",
                 useTransparency: true,
                 onOk: function () {
-                    emptyCart()
                     window.location.reload(false);
                 },
             });

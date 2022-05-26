@@ -38,6 +38,7 @@ const Cart = () => {
     const [delivery, setDelivery] = useState('')
     const [deliveryStatus, setDeliveryStatus] = useState(true)
     const [shippingDetails, setShippingDetails] = useState(undefined)
+    let shippingData;
     let shipping = {
         address:'',
         city:'',
@@ -55,22 +56,21 @@ const Cart = () => {
 
     const setAddressData = (e)=>{
         e.preventDefault()
-        shipping.address = address;
-        shipping.country = country;
-        shipping.city = city;
-        shipping.postal = postal;
+        shippingData = {
+            country,city,address,postal
+        }
         setDeliveryStatus(false)
-        console.log(shipping)
+        setShippingDetails(shippingData)
+        console.log(shippingData)
     }
     const clearData = (e)=>{
         e.preventDefault()
-        shipping.address = '';
-        shipping.country = '';
-        shipping.city = '';
-        shipping.postal = '';
+        shippingData = {
+            country,city,address,postal
+        }
         setDeliveryStatus(true)
-        setShippingDetails(shipping)
-        console.log(shipping)
+        setShippingDetails(shippingData)
+        console.log(shippingData)
     }
 
     if (isEmpty) return (
@@ -100,6 +100,7 @@ const Cart = () => {
             <Footer/>
         </>
     );
+
 
 
     return (
@@ -296,7 +297,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <MobilePayment total={cartTotal} shippingDetails={shippingDetails} deliverFee={delivery} items={items}/>
+                            <MobilePayment total={cartTotal} shippingDetails={shippingData} deliverFee={delivery} items={items}/>
                         </div>
                     </div>
                 </div>
