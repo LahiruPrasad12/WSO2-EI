@@ -17,6 +17,9 @@ const MobilePayment = (props) => {
 
     const { loggedIn } = useContext(AuthContext);
 
+    const {
+        emptyCart,
+    } = useCart();
 
     async function sentPayment(e) {
         e.preventDefault()
@@ -39,6 +42,7 @@ const MobilePayment = (props) => {
                 theme: "dark",
                 useTransparency: true,
                 onOk: function () {
+                    emptyCart()
                     window.location = '/myorders'
                 },
             });
