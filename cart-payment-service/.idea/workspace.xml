@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78dcf2fc-48a2-4680-a7f1-6a3449c59f98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/REST API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/REST API.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main-services/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main-services/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main-services/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main-services/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../main-services/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/paymentGetway.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/paymentGetway.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../main-services/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../main-services/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/.idea/ui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.idea/ui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/Router.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/cartPayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/cartPayment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +51,7 @@
       <workItem from="1653477315255" duration="1241000" />
       <workItem from="1653556157227" duration="694000" />
       <workItem from="1653560055094" duration="6030000" />
+      <workItem from="1653595684173" duration="614000" />
     </task>
     <servers />
   </component>

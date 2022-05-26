@@ -2,14 +2,21 @@ const sendEmail = require("../utils/email");
 const AppError = require("../utils/appError");
 
 exports.sendEmail = async (req, res, next) => {
-    console.log(req.body)
-    const message = `Payment was successfull`;
+
+    const ownerMessage = `You have order request from`;
+    const clientMessage = `Payment was successfully`;
 
     try {
         await sendEmail({
             email: req.body.email,
             subject: 'Your payment',
-            message
+            clientMessage
+        });
+
+        await sendEmail({
+            email: req.body.client_email,
+            subject: 'Your payment',
+            clientMessage
         });
 
         res.status(200).json({

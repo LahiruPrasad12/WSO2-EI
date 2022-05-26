@@ -4,16 +4,19 @@ import SoloAlert from 'soloalert'
 import axios from 'axios';
 import AuthContext from '../../../context/AuthContext';
 import { useCart } from 'react-use-cart';
+import buyerAPI from "../../../apis/modules/buyer";
 
 const CartPayment = (props) => {
     const transfer_amount = props.total;
-    const deliverFee = props.deliverFee;
+    const deliveryData = props.deliverFee;
+    let totalAmount = transfer_amount + (deliveryData.price * 1)
     const items = props.items;
+    const shippingAddress = props.shippingDetails;
+
     const [card_no, setcard_no] = useState('')
     const [card_cvc, setcard_cvc] = useState('')
     const [exp_date, setexp_date] = useState('')
     const [card_holder_name, setcard_holder_name] = useState('')
-    const [balance, setbalance] = useState(100)
     const [postalCode, setpostalCode] = useState(0)
     const { loggedIn } = useContext(AuthContext);
 
@@ -25,11 +28,22 @@ const CartPayment = (props) => {
     async function sentPayment(e) {
         e.preventDefault()
         try {
+
+            let email = deliveryData.email
+            let shippingMethod = deliveryData.name
+            let shippingFee = deliveryData.price
             const user_id = loggedIn._id
             const newDetails = {
-                postalCode, card_holder_name, exp_date, card_cvc, card_no, user_id, transfer_amount
+                user_id, totalAmount, items, shippingAddress, email, shippingMethod, shippingFee
             }
-            const data = (await axios.post("http://localhost:5001/cart-payment", newDetails))
+            const orderData = (await buyerAPI.placeOrder(newDetails))
+
+            const client_email = loggedIn.email
+            const cartData = {
+                client_email,email
+            }
+
+            const data = (await axios.post("http://localhost:5001/cart-payment", cartData))
             console.log(data)
             SoloAlert.alert({
                 title: "Oops!",
@@ -84,7 +98,7 @@ const CartPayment = (props) => {
                                         </div>
                                         <div class="form-group">
                                             <label>Payment amount</label>
-                                            <h2>LKR {transfer_amount+(deliverFee*1)} <h6>(Delivery fee : {deliverFee})</h6></h2>
+                                            <h2>LKR {totalAmount}  <h6>Deliver fee : RS.{deliveryData.price}</h6></h2>
                                         </div>
                                         <div class="form-group has-success">
                                             <label for="cc-name" class="control-label">Name on Card</label>
@@ -114,12 +128,6 @@ const CartPayment = (props) => {
                                                         onChange={(e) => { setcard_cvc(e.target.value) }} />
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="x_zip" class="control-label">Postal code</label>
-                                            <input id="x_zip" name="x_zip" type="text" class="form-control" data-val="true" data-val-required="Please enter the ZIP/Postal code" autocomplete="postal-code"
-                                                onChange={(e) => { setpostalCode(e.target.value) }} />
-                                            <span class="help-block" data-valmsg-for="x_zip" data-valmsg-replace="true"></span>
                                         </div>
                                         <div>
                                             <button onClick={(e) => { sentPayment(e) }} id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">

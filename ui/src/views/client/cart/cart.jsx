@@ -292,7 +292,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <CartPayment total={cartTotal} deliverFee={deliveryPrice} items={items}/>
+                            <CartPayment total={cartTotal} shippingDetails={shippingDetails} deliverFee={deliverDetails} items={items}/>
                         </div>
                     </div>
                 </div>
