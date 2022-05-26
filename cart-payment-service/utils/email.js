@@ -1,8 +1,9 @@
 const nodemailer = require('nodemailer');
 
 const sendEmail = async options => {
+    console.log('ava')
     // 1) Create a transporter
-    const transporter = nodemailer.createTransport({
+    const transport = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
         auth: {
@@ -21,7 +22,7 @@ const sendEmail = async options => {
     };
 
     // 3) Actually send the email
-    await transporter.sendMail(mailOptions);
+    await transport.sendMail(mailOptions);
 };
 
 module.exports = sendEmail;

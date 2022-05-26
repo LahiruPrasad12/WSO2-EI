@@ -1,19 +1,14 @@
 const sendEmail = require("../utils/email");
-exports.forgotPassword = async (req, res, next) => {
-    // Get user based on POSTed email
+const AppError = require("../utils/appError");
 
-
-    //Generate the random reset token
-
-
-
-
-    const message = `Forgot your password? `;
+exports.sendEmail = async (req, res, next) => {
+    console.log(req.body)
+    const message = `Payment was successfull`;
 
     try {
         await sendEmail({
             email: req.body.email,
-            subject: 'Your password reset token (valid for 10 min)',
+            subject: 'Your payment',
             message
         });
 
@@ -24,7 +19,7 @@ exports.forgotPassword = async (req, res, next) => {
     } catch (err) {
 
         return next(
-            new AppError('There was an error sending the email. Try again later!'),
+            new AppError(err),
             500
         );
     }
