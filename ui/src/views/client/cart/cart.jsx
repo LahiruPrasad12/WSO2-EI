@@ -29,19 +29,49 @@ const Cart = () => {
         },
     ]
     const [qty, setQty] = useState('')
+    const [address, setAddress] = useState('')
+    const [city, setCity] = useState('')
+    const [country, setCountry] = useState('')
+    const [postal, setPostal] = useState('')
     const [cartDisplay, setCart] = useState(true)
     const [paymenttDisplay, setPayment] = useState(false)
     const [delivery, setDelivery] = useState('')
+    const [deliveryStatus, setDeliveryStatus] = useState(true)
+    const [shippingDetails, setShippingDetails] = useState(undefined)
+    let shipping = {
+        address:'',
+        city:'',
+        country:'',
+        postal:''
+    };
     const {
         items,
         totalItems,
         isEmpty,
-        totalUniqueItems,
         cartTotal,
         updateItemQuantity,
         removeItem,
-        emptyCart
     } = useCart();
+
+    const setAddressData = (e)=>{
+        e.preventDefault()
+        shipping.address = address;
+        shipping.country = country;
+        shipping.city = city;
+        shipping.postal = postal;
+        setDeliveryStatus(false)
+        console.log(shipping)
+    }
+    const clearData = (e)=>{
+        e.preventDefault()
+        shipping.address = '';
+        shipping.country = '';
+        shipping.city = '';
+        shipping.postal = '';
+        setDeliveryStatus(true)
+        setShippingDetails(shipping)
+        console.log(shipping)
+    }
 
     if (isEmpty) return (
         <>
@@ -70,8 +100,6 @@ const Cart = () => {
             <Footer/>
         </>
     );
-
-
 
 
     return (
@@ -174,11 +202,15 @@ const Cart = () => {
                                         Items: {totalItems}</h3>
                                     <hr/>
                                     <center>
+                                        <button type="button" className="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add shipping
+                                            address
+                                        </button>
                                         <h3 style={{paddingBottom: '15px'}}
                                             className="h6 pt-4 font-weight-semibold"><span
                                             className="badge badge-success mr-2">S</span>Shipping Service</h3>
                                         <div className="input-group-btn search-panel">
-                                            <select name="search_param" id="search_param"
+                                            <select disabled={deliveryStatus} name="search_param" id="search_param"
                                                     style={{borderRadius: '0px', width: '200px'}}
                                                     className="btn btn-light dropdown-toggle" data-toggle="dropdown"
                                                     onChange={(e) => {
@@ -264,11 +296,76 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <MobilePayment total={cartTotal}/>
+                            <MobilePayment total={cartTotal} shippingDetails={shippingDetails} deliverFee={delivery} items={items}/>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/*add shipping model*/}
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Add shipping address</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <form className="row">
+                                <div className="col-md-12">
+                                    <div className="mb-3">
+                                        <label htmlFor="recipient-name" className="col-form-label">Address</label>
+                                        <input type="text" placeholder="Enter your address" className="form-control" id="recipient-name"
+                                               onChange={(e) => {
+                                                   setAddress(e.target.value)
+                                               }} required/>
+                                    </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="mb-3">
+                                        <label htmlFor="recipient-name" className="col-form-label">City</label>
+                                        <input type="text" placeholder="Enter city" className="form-control" id="recipient-name"
+                                               onChange={(e) => {
+                                                   setCity(e.target.value)
+                                               }} required/>
+                                    </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="mb-3">
+                                        <label htmlFor="recipient-name" className="col-form-label">County</label>
+                                        <input type="text" placeholder="Enter country" className="form-control" id="recipient-name"
+                                               onChange={(e) => {
+                                                   setCountry(e.target.value)
+                                               }} required/>
+                                    </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="mb-3">
+                                        <label htmlFor="recipient-name" className="col-form-label">Postal code</label>
+                                        <input type="number" placeholder="Enter postal code" className="form-control" id="recipient-name"
+                                               onChange={(e) => {
+                                                   setPostal(e.target.value)
+                                               }} required/>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"
+                                    onClick={(e)=>{clearData(e)}}>Close</button>
+                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
+                                    onClick={(e)=>{setAddressData(e)}}
+                            disabled={address.length===0 || city.length===0 || postal.length===0 || country.length===0}
+                            >Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 

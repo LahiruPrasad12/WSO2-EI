@@ -7,12 +7,12 @@ import { useCart } from 'react-use-cart';
 
 const MobilePayment = (props) => {
     const transfer_amount = props.total;
-    const [card_no, setcard_no] = useState('')
-    const [card_cvc, setcard_cvc] = useState('')
-    const [exp_date, setexp_date] = useState('')
-    const [card_holder_name, setcard_holder_name] = useState('')
-    const [balance, setbalance] = useState(100)
-    const [postalCode, setpostalCode] = useState(0)
+    const deliveryFee = props.deliverFee;
+    let totalAmount = transfer_amount+(deliveryFee*1)
+    const items = props.items;
+    const shippingAddress = props.shippingDetails;
+    const [mobile, setMobileNumber] = useState('')
+
     const { loggedIn } = useContext(AuthContext);
 
 
@@ -25,9 +25,9 @@ const MobilePayment = (props) => {
         try {
             const user_id = loggedIn._id
             const newDetails = {
-                postalCode, card_holder_name, exp_date, card_cvc, card_no, user_id, transfer_amount
+                user_id,totalAmount, mobile, items, shippingAddress
             }
-            const data = (await axios.post("http://localhost:5001/cart-payment", newDetails))
+            const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
             console.log(data)
             SoloAlert.alert({
                 title: "Oops!",
@@ -72,12 +72,13 @@ const MobilePayment = (props) => {
                                         <input type="hidden" id="x_exp_date" name="x_exp_date" value="" />
                                         <div class="form-group">
                                             <label>Payment amount</label>
-                                            <h2>LKR {transfer_amount}</h2>
+                                            <h2>LKR {totalAmount}</h2>
+                                            <h6>Deliver fee : RS.{deliveryFee}</h6>
                                         </div>
                                         <div class="form-group has-success">
-                                            <label for="cc-name" class="control-label">Name on Card</label>
-                                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error"
-                                                   onChange={(e) => { setcard_holder_name(e.target.value) }} />
+                                            <label for="cc-name" class="control-label">Enter mobile number</label>
+                                            <input id="cc-name" name="cc-name" type="number" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error"
+                                                   onChange={(e) => { setMobileNumber(e.target.value) }} />
                                             <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                         </div>
                                         <div>
