@@ -22,7 +22,7 @@ const Cart = () => {
             email: 'lahirupr471@gmail.com'
         },
         {
-            id: 2,
+            id: 3,
             price: 200,
             name: 'Kooria service',
             email: 'lahirupr471@gmail.com'
@@ -35,9 +35,12 @@ const Cart = () => {
     const [postal, setPostal] = useState('')
     const [cartDisplay, setCart] = useState(true)
     const [paymenttDisplay, setPayment] = useState(false)
-    const [delivery, setDelivery] = useState('')
+    const [deliveryPrice, setDeliveryPrice] = useState('')
+    const [deliveryName, setDeliveryName] = useState('')
+    const [deliveryEmail, setDeliveryEmail] = useState('')
     const [deliveryStatus, setDeliveryStatus] = useState(true)
     const [shippingDetails, setShippingDetails] = useState(undefined)
+
     let shippingData;
     let shipping = {
         address:'',
@@ -71,6 +74,15 @@ const Cart = () => {
         setDeliveryStatus(true)
         setShippingDetails(shippingData)
         console.log(shippingData)
+    }
+
+    const setData = (e)=>{
+        let Id = e.target.value;
+        const data = deliveryData.find( (e) => e.id == Id );
+        setDeliveryPrice(data.price)
+        console.log(Id)
+        console.log(deliveryData)
+        console.log(data)
     }
 
     if (isEmpty) return (
@@ -211,27 +223,25 @@ const Cart = () => {
                                             className="h6 pt-4 font-weight-semibold"><span
                                             className="badge badge-success mr-2">S</span>Shipping Service</h3>
                                         <div className="input-group-btn search-panel">
-                                            <select disabled={deliveryStatus} name="search_param" id="search_param"
+                                            <select  name="search_param" id="search_param"
                                                     style={{borderRadius: '0px', width: '200px'}}
                                                     className="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                                                    onChange={(e) => {
-                                                        setDelivery(e.target.value)
-                                                    }}>
+                                                    onChange={(e)=>{setData(e)}}>
                                                 <option value="">-Shipping Service-</option>
                                                 {/* eslint-disable-next-line array-callback-return */}
-                                                {deliveryData.map((e) => {
-                                                    return <option value={e.price}>
-                                                        {e.name}
+                                                {deliveryData.map((event) => {
+                                                    return <option value={event.id}>
+                                                        {event.name}
                                                     </option>
                                                 })}
                                             </select>
                                         </div>
-                                        <div className="mt-2" hidden={delivery.length === 0}>
-                                            <h6>Delivery fee : RS.{delivery}</h6>
+                                        <div className="mt-2" hidden={deliveryPrice.length === 0}>
+                                            <h6>Delivery fee : RS.{deliveryPrice}</h6>
                                         </div>
                                     </center>
                                     <br/>
-                                    <div hidden={delivery.length === 0} data-bs-toggle="modal"
+                                    <div hidden={deliveryPrice.length === 0} data-bs-toggle="modal"
                                          data-bs-target="#cartPayment">
                                         <a className="btn btn-primary btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -245,7 +255,7 @@ const Cart = () => {
                                         </a>
                                     </div>
                                     <br/>
-                                    <div hidden={delivery.length === 0} data-bs-toggle="modal"
+                                    <div hidden={deliveryPrice.length === 0} data-bs-toggle="modal"
                                          data-bs-target="#mobilePayment">
                                         <a className="btn btn-success btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -280,7 +290,7 @@ const Cart = () => {
                                     aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <CartPayment total={cartTotal} deliverFee={delivery} items={items}/>
+                            <CartPayment total={cartTotal} deliverFee={deliveryPrice} items={items}/>
                         </div>
                     </div>
                 </div>
