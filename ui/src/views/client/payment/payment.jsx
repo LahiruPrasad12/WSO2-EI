@@ -66,8 +66,8 @@ const Payment = (props) => {
             <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
             <div class="container" >
                 <div className='shopc'>
-                    <h1>PAYMENT</h1>
-                    <p><Link to="/homeclient">Home</Link> / Cart / Payment</p>
+                    <h1>CARD PAYMENT</h1>
+                    <p><Link to="/homeclient">Home</Link> / Cart / Card Payment</p>
                 </div>
                 <div class="container py-3">
                     <div class="row">

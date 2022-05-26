@@ -134,20 +134,22 @@ const Cart = () => {
                                             <option value="email">Domex</option>
                                             <option value="studentcode">DHL</option>
                                         </select>
-                                    </div>
+                                    </div><br/>
+                                    <p style={{fontWeight: 'bold'}} >Shipping Fee : Rs. 300</p>
+                                    <button class="btn btn-outline-success btn-sm btn-block mb-2"><i class="fas fa-plane"></i>  Shipping Address</button> 
                                     </center>
-                                    <br/>
-                                    <div onClick={(e) => { changeStateHandler(e) }} ><a class="btn btn-primary btn-block" href="#">
+                                    
+                                    <div style={{marginTop: '20px'}} onClick={(e) => { changeStateHandler(e) }} ><a class="btn btn-primary btn-block" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                                             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                                             <line x1="1" y1="10" x2="23" y2="10"></line>
                                         </svg>Pay with Card</a></div>
                                         <br/>
-                                    <div onClick={(e) => { changeStateHandler(e) }} ><a class="btn btn-success btn-block" href="#">
+                                    <Link to=''><div><a class="btn btn-success btn-block" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-phone-vibrate" viewBox="0 0 16 16">
                                     <path d="M10 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4zM6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
                                     <path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM1.599 4.058a.5.5 0 0 1 .208.676A6.967 6.967 0 0 0 1 8c0 1.18.292 2.292.807 3.266a.5.5 0 0 1-.884.468A7.968 7.968 0 0 1 0 8c0-1.347.334-2.619.923-3.734a.5.5 0 0 1 .676-.208zm12.802 0a.5.5 0 0 1 .676.208A7.967 7.967 0 0 1 16 8a7.967 7.967 0 0 1-.923 3.734.5.5 0 0 1-.884-.468A6.967 6.967 0 0 0 15 8c0-1.18-.292-2.292-.807-3.266a.5.5 0 0 1 .208-.676zM3.057 5.534a.5.5 0 0 1 .284.648A4.986 4.986 0 0 0 3 8c0 .642.12 1.255.34 1.818a.5.5 0 1 1-.93.364A5.986 5.986 0 0 1 2 8c0-.769.145-1.505.41-2.182a.5.5 0 0 1 .647-.284zm9.886 0a.5.5 0 0 1 .648.284C13.855 6.495 14 7.231 14 8c0 .769-.145 1.505-.41 2.182a.5.5 0 0 1-.93-.364C12.88 9.255 13 8.642 13 8c0-.642-.12-1.255-.34-1.818a.5.5 0 0 1 .283-.648z"/>
-                                    </svg>  Pay with Mobile</a></div>    
+                                    </svg>  Pay with Mobile</a></div> </Link>   
                                 </div>
                             </div>
                         </div>

@@ -17,6 +17,8 @@ import Cart from './views/client/cart/cart';
 import Itemview from './views/itemview/itemview';
 import EditProduct from './views/owner/home/editProduct';
 import Payment from './views/client/payment/payment';
+import Myorders from './views/client/my orders/myorders';
+import Orders from './views/owner/home/orders';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);
@@ -39,6 +41,8 @@ const Routers = () => {
                     <Route exact path="/cart"><Cart /></Route>
                     <Route exact path="/edit-product/:id"><EditProduct /></Route>
                     <Route exact path="/payment"><Payment /></Route>
+                    <Route exact path="/myorders"><Myorders /></Route>
+                    <Route exact path="/orders"><Orders /></Route>
                 </>)
             }
 
