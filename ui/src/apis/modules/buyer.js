@@ -5,6 +5,6 @@ const resource1 = '/api/orders';
 
 export default {
     listPrduct: () => api.get(`${resource}`),
-    placeOrder: () => api.post(`${resource1}`),
+    placeOrder: (payload) => api.post(`${resource1}`,payload),
     getMyeOrder: () => api.get(`${resource1}`)
 }

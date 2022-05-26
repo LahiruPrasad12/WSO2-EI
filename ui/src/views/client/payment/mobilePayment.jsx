@@ -27,7 +27,7 @@ const MobilePayment = (props) => {
             const newDetails = {
                 user_id,totalAmount, mobile, items, shippingAddress, email,shippingMethod
             }
-            const orderData = (await buyerAPI.placeOrder("http://localhost:5000/api/orders", newDetails))
+            const orderData = (await buyerAPI.placeOrder(newDetails))
             // const data = (await axios.post("http://localhost:5002/mobile-payment", newDetails))
             // console.log(data)
             SoloAlert.alert({
