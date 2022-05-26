@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78dcf2fc-48a2-4680-a7f1-6a3449c59f98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../main-services/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mobile-payment-service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/paymentGetway.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/email.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/REST API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/REST API.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
@@ -14,21 +12,38 @@
       <change beforePath="$PROJECT_DIR$/.idea/cart-payment.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../main-services/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../main-services/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../main-services/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../main-services/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../main-services/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mobile-payment-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../mobile-payment-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main-services/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../main-services/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/.idea/ui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.idea/ui.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/Router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/Router.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29ed3JDDaJxvKp5O5XDgzboDfII" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,15 +51,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,11 +68,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653477313739</updated>
-      <workItem from="1653477315255" duration="465000" />
+      <workItem from="1653477315255" duration="1241000" />
+      <workItem from="1653556157227" duration="694000" />
+      <workItem from="1653560055094" duration="833000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
