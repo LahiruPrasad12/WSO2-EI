@@ -59,8 +59,6 @@ const MobilePayment = (props) => {
     }
     return (
         <div>
-
-            <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
             <div >
                 <div class="">
                     <div class="row">
