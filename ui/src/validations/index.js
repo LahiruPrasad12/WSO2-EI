@@ -35,3 +35,16 @@ export const Mobile = Yup.object().shape({
         .min(9, 'please enter valid phone number')
         .max(10, 'please enter valid phone number')
 });
+
+export const BankCart = Yup.object().shape({
+    name:Yup.string().required('required'),
+    cart_no:Yup.string().required('required')
+        .min(9, 'please enter valid phone number')
+        .max(10, 'please enter valid phone number'),
+    expiration:Yup.string().required('required')
+        .min(4, 'expiration is invalid')
+        .max(4, 'expiration is invalid'),
+    security:Yup.string().required('required')
+        .min(3, 'security is invalid')
+        .max(3, 'security is invalid')
+});

@@ -7,11 +7,6 @@ exports.sendEmail = async (req, res, next) => {
     const clientMessage = `Payment was successfully`;
 
     try {
-        await sendEmail({
-            email: req.body.email,
-            subject: 'Your payment',
-            clientMessage
-        });
 
         await sendEmail({
             email: req.body.client_email,
