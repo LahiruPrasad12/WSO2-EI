@@ -41,7 +41,8 @@ export default function Header() {
               {
                 loggedIn !== null && loggedIn.role === 'owner' && (<>
                   <Link to="/homeowner"><li><a>MY Products</a></li></Link>
-                  <Link to="/add-product"><li><a>Product Listing Form</a></li></Link>
+                  <Link to="/add-product"><li><a>Product Listing</a></li></Link>
+                  <Link to="/orders"><li><a>Orders</a></li></Link>
                   <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
                 </>)
               }
@@ -50,7 +51,7 @@ export default function Header() {
               {
                 loggedIn !== null && loggedIn.role === 'buyer' && (<>
                   <Link to="/homeclient"><li><a>Home</a></li></Link>
-                  {/* <Link to="/homeclient"><li><a>My Orders</a></li></Link> */}
+                  <Link to="/myorders"><li><a>My Orders</a></li></Link>
                   {/* <Link to="/cart" style={{ textDecoration: "none" }}><li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" /></svg><span style={{ marginBottom: "10px" }}>{totalItems === 0 ? '' : String(totalItems)[0] !== 0 ? totalItems : totalItems.replace(/^0+/, '')}</span></li></Link> */}
                   <Link to="/cart" style={{ textDecoration: "none" }}><li class="nav-item px-3 text-uppercase mb-0 position-relative d-lg-flex">
                     <div id="cart" class="d-none"></div>
