@@ -71,14 +71,8 @@ const Cart = () => {
         </>
     );
 
-    const changeStateHandler = () => {
-        setCart(false);
-        setPayment(true);
-    };
-    const selectMethod= (e)=>{
-        e.preventDefault()
-        alert('ok')
-    }
+
+
 
     return (
         <div>
@@ -190,7 +184,7 @@ const Cart = () => {
                                                     onChange={(e) => {
                                                         setDelivery(e.target.value)
                                                     }}>
-                                                <option value="all">-Shipping Service-</option>
+                                                <option value="">-Shipping Service-</option>
                                                 {/* eslint-disable-next-line array-callback-return */}
                                                 {deliveryData.map((e) => {
                                                     return <option value={e.price}>
@@ -204,7 +198,7 @@ const Cart = () => {
                                         </div>
                                     </center>
                                     <br/>
-                                    <div data-bs-toggle="modal"
+                                    <div hidden={delivery.length === 0} data-bs-toggle="modal"
                                          data-bs-target="#cartPayment">
                                         <a className="btn btn-primary btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -218,7 +212,7 @@ const Cart = () => {
                                         </a>
                                     </div>
                                     <br/>
-                                    <div data-bs-toggle="modal"
+                                    <div hidden={delivery.length === 0} data-bs-toggle="modal"
                                          data-bs-target="#mobilePayment">
                                         <a className="btn btn-success btn-block" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
