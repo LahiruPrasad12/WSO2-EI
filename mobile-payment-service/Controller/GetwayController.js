@@ -9,27 +9,31 @@ const vonage = new Vonage({
 //@route POST /api/v1/sms
 //@access Private
 
-exports.sendSMS = async (req, res) => {
-    console.log('hey sms');
-    const from = 'Vonage APIs';
-    const to = '94764858569';
-    const text = 'A text message sent using the Vonage SMS API';
+const ShoutoutClient = require('shoutout-sdk');
 
-    vonage.message.sendSms(from, to, text, (err, responseData) => {
-        if (err) {
-            console.log(err);
+const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjOTdjMDNmMC1kY2Q3LTExZWMtOTU2Yi0xNzVlYzExNGRjNGQiLCJzdWIiOiJTSE9VVE9VVF9BUElfVVNFUiIsImlhdCI6MTY1MzU1Nzk4OSwiZXhwIjoxOTY5MTc3MTg5LCJzY29wZXMiOnsiYWN0aXZpdGllcyI6WyJyZWFkIiwid3JpdGUiXSwibWVzc2FnZXMiOlsicmVhZCIsIndyaXRlIl0sImNvbnRhY3RzIjpbInJlYWQiLCJ3cml0ZSJdfSwic29fdXNlcl9pZCI6IjY4MzA5Iiwic29fdXNlcl9yb2xlIjoidXNlciIsInNvX3Byb2ZpbGUiOiJhbGwiLCJzb191c2VyX25hbWUiOiIiLCJzb19hcGlrZXkiOiJub25lIn0.mD2odsYXU8mfIN2J1wOjzcJ9w6y5Ps0bvNlNePsBPKI';
+
+const debug = true, verifySSL = false;
+exports.sendSMSTO = async (req, res) => {
+    const client = new ShoutoutClient(apiKey, debug, verifySSL);
+    const message = {
+        "content": {"sms": "Your payment was success full"},
+        "destinations": [req.body.phone],
+        "source": "ShoutDEMO",
+        "transports": ["SMS"]
+    };
+
+    client.sendMessage(message, (error, result) => {
+        if (error) {
+            return res.status(40000).json({
+                payment: "Payment was successfully",
+                status: 1,
+            });
         } else {
-            if (responseData.messages[0]['status'] === '0') {
-                return res.status(200).json({
-                    payment: "Payment was successfully",
-                    status: 1,
-                });
-            } else {
-                return res.status(400).json({
-                    payment:  `${responseData.messages[0]['error-text']}`,
-                    status: 1,
-                });
-            }
+            return res.status(200).json({
+                payment: result,
+                status: 1,
+            });
         }
     });
-};
+}

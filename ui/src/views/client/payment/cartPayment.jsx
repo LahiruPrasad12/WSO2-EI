@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import Footer from '../../../layouts/footer';
-import Header from '../../../layouts/header';
 import './payment.css';
 import SoloAlert from 'soloalert'
 import axios from 'axios';
 import AuthContext from '../../../context/AuthContext';
 import { useCart } from 'react-use-cart';
 
-const Payment = (props) => {
+const CartPayment = (props) => {
     const transfer_amount = props.total;
     const [card_no, setcard_no] = useState('')
     const [card_cvc, setcard_cvc] = useState('')
@@ -62,22 +59,14 @@ const Payment = (props) => {
     }
     return (
         <div>
-            <Header />
+
             <img src="https://i.postimg.cc/BbrzhpXf/services-left-dec.png" alt="" class="shape" />
-            <div class="container" >
-                <div className='shopc'>
-                    <h1>PAYMENT</h1>
-                    <p><Link to="/homeclient">Home</Link> / Cart / Payment</p>
-                </div>
-                <div class="container py-3">
+            <div >
+                <div class="">
                     <div class="row">
-                        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+                        <div class="col-12 col-sm-12 col-md-12 mx-auto">
                             <div id="pay-invoice" class="card">
                                 <div class="card-body">
-                                    <div class="card-title">
-                                        <h2 class="text-center">Pay Invoice</h2>
-                                    </div>
-                                    <hr />
                                     <form action="">
                                         <input type="hidden" id="x_first_name" name="x_first_name" value="" />
                                         <input type="hidden" id="x_last_name" name="x_last_name" value="" />
@@ -144,9 +133,8 @@ const Payment = (props) => {
                 </div>
 
             </div>
-            <Footer />
         </div>
     )
 }
 
-export default Payment;
+export default CartPayment;
