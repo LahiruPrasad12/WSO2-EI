@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be109f87-43e4-4a25-a206-9a5c77797446" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart-payment-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cart-payment-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart-payment-service/Controllers/paymentGetway.js" beforeDir="false" afterPath="$PROJECT_DIR$/cart-payment-service/Controllers/paymentGetway.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/client/cart/cart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/client/payment/cartPayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/client/payment/cartPayment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/client/payment/mobilePayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="be109f87-43e4-4a25-a206-9a5c77797446" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +41,7 @@
       <workItem from="1653153919769" duration="654000" />
       <workItem from="1653476998546" duration="100000" />
       <workItem from="1653575455949" duration="27000" />
-      <workItem from="1653575546257" duration="21950000" />
+      <workItem from="1653575546257" duration="22267000" />
     </task>
     <servers />
   </component>
