@@ -1,4 +1,4 @@
-const {model, Schema} = require("mongoose");
+const { model, Schema } = require("mongoose");
 const mongoose = require("mongoose");
 
 const orderSchema = new Schema(
@@ -10,17 +10,22 @@ const orderSchema = new Schema(
             type: String,
             required: [true, "Please enter a user id"],
         },
-        shippingMethod:{
+        shippingMethod: {
             type: String,
         },
-        shippingAddress:{
+        shippingAddress: {
             type: Object,
         },
-        totalAmount:{
+        totalAmount: {
             type: String
         },
-        shippingFee:{
+        shippingFee: {
             type: String
+        },
+        status: {
+            type: String,
+            enum: ['Processing', 'Shipped', 'Delivered'],
+            default: 'Processing'
         }
     },
 );
