@@ -11,7 +11,7 @@ exports.saveOrder = async (req, res) => {
         await sendEmail({
             email: req.body.email,
             subject: 'Congrats!!',
-            message
+            message:message
         });
         return res.status(200).json({
             message: "Order was saved successfully",
