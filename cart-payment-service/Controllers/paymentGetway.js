@@ -11,7 +11,7 @@ exports.sendEmail = async (req, res, next) => {
         await sendEmail({
             email: req.body.client_email,
             subject: 'Congrats!!',
-            clientMessage
+            message:clientMessage
         });
 
         res.status(200).json({

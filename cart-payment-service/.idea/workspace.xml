@@ -5,9 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/paymentGetway.js" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/paymentGetway.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/cart/cart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/cartPayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/cartPayment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/views/client/payment/mobilePayment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/email.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,8 @@
       <workItem from="1653477315255" duration="1241000" />
       <workItem from="1653556157227" duration="694000" />
       <workItem from="1653560055094" duration="6030000" />
-      <workItem from="1653595684173" duration="1649000" />
+      <workItem from="1653595684173" duration="1822000" />
+      <workItem from="1653628956870" duration="2083000" />
     </task>
     <servers />
   </component>

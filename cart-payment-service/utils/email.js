@@ -3,12 +3,20 @@ const nodemailer = require('nodemailer');
 const sendEmail = async options => {
     console.log('ava')
     // 1) Create a transporter
+    // const transport = nodemailer.createTransport({
+    //     host: process.env.EMAIL_HOST,
+    //     port: process.env.EMAIL_PORT,
+    //     auth: {
+    //         user: process.env.EMAIL_USERNAME,
+    //         pass: process.env.EMAIL_PASSWORD
+    //     }
+    // });
+
     const transport = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
+        service: "gmail",
         auth: {
-            user: process.env.EMAIL_USERNAME,
-            pass: process.env.EMAIL_PASSWORD
+            user: "menakajayasekara9@gmail.com",
+            pass: "Menu123@#"
         }
     });
 
