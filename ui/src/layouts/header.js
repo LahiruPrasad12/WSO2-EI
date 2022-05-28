@@ -42,7 +42,7 @@ export default function Header() {
                 loggedIn !== null && loggedIn.role === 'owner' && (<>
                   <Link to="/homeowner"><li><a>MY Products</a></li></Link>
                   <Link to="/add-product"><li><a>Product Listing</a></li></Link>
-                  <Link to="/orders"><li><a>Orders</a></li></Link>
+                  {/* <Link to="/orders"><li><a>Orders</a></li></Link> */}
                   <Link to="/login"><li class="btn2" onClick={logout}>Logout</li></Link>
                 </>)
               }
