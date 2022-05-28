@@ -29,7 +29,7 @@ exports.listProducts = async (req, res) => {
   }
 };
 
-// list all the products
+// list my the products
 exports.listMyProducts = async (req, res) => {
   try {
     console.log(req.user._id)
