@@ -85,7 +85,7 @@ export function Login() {
                       )}
                     </Formik>
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" class="forgot-password-link">Forgot password?</a>
+                    {/* <a href="#" class="forgot-password-link">Forgot password?</a> */}
                     <p class="login-card-footer-text">Don't have an account? <a href="/register" class="text-reset">Register here</a></p>
                   </div>
                 </div>
