@@ -34,7 +34,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.file) filteredBody.photo = req.file.filename;
 
   // Update user document
-  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+  const updatedUser = await User.findByIdAndUpdate(req.user._id, filteredBody, {
     new: true,
     runValidators: true
   });
@@ -50,7 +50,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
 //delete my account
 exports.deleteMe = catchAsync(async (req, res, next) => {
-  await User.findByIdAndUpdate(req.user.id, { active: false });
+  await User.findByIdAndDelete(req.user._id);
 
   res.status(204).json({
     status: 'success',

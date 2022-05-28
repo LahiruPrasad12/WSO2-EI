@@ -8,6 +8,11 @@ export const SigningForm = Yup.object().shape({
         .required('required'),
 });
 
+export const UpdateMe = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('required'),
+    name: Yup.string().required('required'),
+});
+
 export const SignupSchema = Yup.object().shape({
     name: Yup.string().required('required'),
     email: Yup.string().email('Invalid email').required('required'),
