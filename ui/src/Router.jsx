@@ -20,6 +20,7 @@ import CartPayment from './views/client/payment/cartPayment';
 import Payment from './views/client/payment/mobilePayment';
 import Myorders from './views/client/my orders/myorders';
 import Orders from './views/owner/home/orders';
+import Profile from './views/client/profile/profile';
 
 const Routers = () => {
     const { loggedIn } = useContext(AuthContext);
@@ -43,6 +44,7 @@ const Routers = () => {
                     <Route exact path="/edit-product/:id"><EditProduct /></Route>
                     <Route exact path="/myorders"><Myorders /></Route>
                     <Route exact path="/orders"><Orders /></Route>
+                    <Route exact path="/profile"><Profile /></Route>
                 </>)
             }
 
